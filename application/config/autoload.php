@@ -52,7 +52,7 @@ $autoload['packages'] = array(APPPATH.'third_party');
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('database', 'session','form_validation' , 'permission_checker');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+$autoload['helper'] = array('form', 'url' , 'json_ret' , );
 
 
 /*
@@ -109,7 +109,14 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array(
+	'employee_model',
+	'employee_role_model',
+	'role_permission_model',
+	'Resource_model',
+	'Resource_section_model',
+	'Resource_action_model',
+);
 
 
 /* End of file autoload.php */

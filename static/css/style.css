@@ -1,0 +1,35 @@
+.whole_background{
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	position: fixed;
+	background: url('/static/images/bg/25.jpg') 50% 0% no-repeat;
+	background-size: cover;
+}
+.whole_index{
+	font-size: 16px;
+	line-height: 180%;
+	padding: 15%;
+	letter-spacing:.1em;
+	vertical-align: middle;
+}
+.whole_wrap{
+	color:#000;
+	background-color:#FFF;
+	opacity: .6;
+	padding: 2.5%;
+	border: 2px solid gainsboro;
+}
+.copyright{
+	width:100%;
+	text-align: center;
+	position:absolute;
+	bottom: 15px;
+}
+.copyright a{
+	margin-left:4px;
+	text-decoration: none;
+	font-size:14px;
+	color: #fff;
+	text-shadow:1px 1px 1px #000;
+}

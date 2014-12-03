@@ -26,7 +26,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'chinese';
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 
 /*
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'nvrenbangsessionkeyrqf';
 
 /*
 |--------------------------------------------------------------------------
@@ -355,6 +355,17 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+
+/**
+ *
+ *设置免权限可访问的目录,类,方法
+ *
+ */
+$config['allowned_dir']   = array('api',);
+$config['allowned_class'] = array('imgauthcode','login');
+$config['allowned_uri']   = array(
+        'calculate/contract',
+);
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
