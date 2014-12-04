@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>First blood!</title>
-    <link rel="stylesheet" type="text/css" href="<?=base_url('static/css/typo.css')?>">
-    <link rel="stylesheet" type="text/css" href="<?=base_url('static/bootstrap/css/bootstrap.min.css')?>">
-    <style type="text/css">
-    .whole_background{
-        background-image:url('<?=$background;?>');
-    }
-</style>
-</head>
-<body>
-<div class="container">
-<h3>First blood!</h3>
+    <div class="container-fluid">
+        <div class="login">
+            <div class="login-container">
+                <img alt="Logo login@2x" height="30" src="/static/images/logo-login%402x.png" width="100" />
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-envelope"></i></span><input class="form-control" placeholder="Email" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-lock"></i></span><input class="form-control" placeholder="Password" type="password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox"><input type="checkbox" />Remember me</label>
+                    </div>
+                    <div class="btn btn-lg btn-primary login-submit">Log in</div>
+                </form>
+                <a href="index.html#">Forgot password?</a>
+            </div>
+        </div>
+    </div>
+
+<!--
 <form class="form-horizontal col-sm-6" role="form" >
   <div class="form-group ">
     <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
@@ -46,6 +55,8 @@
   </div>
 </form>
 </div>
+-->
+
 
 <script type="text/javascript">
     $('.form_submit').click(function(e) {

@@ -51,8 +51,11 @@ class login extends MY_Controller {
 			json_ret('1',$error);
 		}
 
+        $data = array(
+            'tpl'            => 'firstblood/tpl_user_login',
+        );
 
-		$this->load->view('firstblood/tpl_user_login');
+        $this->load->view('tpl_layout', $data);
 	}
 
 	function vcode_check($str){
