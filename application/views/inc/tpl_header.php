@@ -19,7 +19,7 @@
 <link href="<?=base_url('static/stylesheets/color/orange.css');?>" media="all" rel="alternate stylesheet" title="orange-theme" />
 <link href="<?=base_url('static/stylesheets/color/magenta.css');?>" media="all" rel="alternate stylesheet" title="magenta-theme" />
 <link href="<?=base_url('static/stylesheets/color/gray.css');?>" media="all" rel="alternate stylesheet" title="gray-theme" />
-<link rel="stylesheet" type="text/css" href="<?=base_url('static/sco/css/sco.message.css')?>">
+<link href="<?=base_url('static/sco/css/sco.message.css')?>" rel="stylesheet" type="text/css" >
 <script src="<?=base_url('static/javascripts/modernizr.custom.js');?>"></script>
 <script src="<?=base_url('static/javascripts/jquery-1.10.1.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('static/sco/js/sco.message.js')?>"></script>
