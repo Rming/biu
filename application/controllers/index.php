@@ -6,6 +6,16 @@ class index extends CI_Controller {
 		parent::__construct();
 	}
 
+	public function test(){
+		require_once APPPATH.'libraries/RNCryptor/autoload.php';
+
+		$password = "123456789";
+		$plaintext = '{"service":"service_SSO","method":"login"}';
+
+		$cryptor = new \RNCryptor\Encryptor();
+		echo $base64Encrypted = $cryptor->encrypt($plaintext, $password);
+
+	}
 	public function index(){
 		$poetry = array(
 			'If you shed tears when you miss the sun, you also miss the stars.',

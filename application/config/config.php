@@ -367,5 +367,7 @@ $config['allowned_uri']   = array(
         'calculate/contract',
 );
 
+$config['compress_output'] = FALSE;
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */
