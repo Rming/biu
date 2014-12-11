@@ -15,6 +15,12 @@ $hook['post_controller_constructor'][] = array(
 	'filename' => 'access_control.php',
 	'filepath' => 'hooks'
 );
+$hook['post_controller_constructor'][] = array(
+	'class'    => 'access_rest',
+	'function' => 'check',
+	'filename' => 'access_rest.php',
+	'filepath' => 'hooks'
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

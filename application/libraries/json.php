@@ -63,10 +63,17 @@ class Json{
 		return $http_body;
 	}
 
-	public function response($data){
-		//header?
-		echo $this->set_response($data);
-		exit;
+	public function response($data,$continue = false){
+		header('application/json;charset=utf-8');
+
+        if($continue){
+            echo $this->set_response($data);
+            ob_end_flush();
+            ob_flush();
+            flush();
+        }else{
+            echo $this->set_response($data);
+        }
 	}
 
 

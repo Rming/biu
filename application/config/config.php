@@ -355,6 +355,8 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+$config['compress_output'] = FALSE;
+
 
 /**
  *
@@ -367,7 +369,10 @@ $config['allowned_uri']   = array(
         'calculate/contract',
 );
 
-$config['compress_output'] = FALSE;
+$config['rest_allowned_uri']   = array(
+        'update/check',
+);
+
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

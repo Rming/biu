@@ -10,10 +10,14 @@ class index extends CI_Controller {
 		require_once APPPATH.'libraries/RNCryptor/autoload.php';
 
 		$password = "123456789";
-		$plaintext = '{"service":"service_SSO","method":"login"}';
+		$plaintext = '{"service":"service_SSO","method":"logIn","token":"3DA0B892E00D4EF89CDA112658532BB7DE2A634F","channel":"1001","deviceId":"DE2A634F-30EA-4287-BF4F-B546901CA2A5","imsi":"00000000","ipAddr":"0.0.0.0","addtionalDeviceId":"3DA0B892E00D4EF89CDA112658532BB7DE2A634F","macAddr":"0:0:0:0","model":"iPhone 5","platform":"iOS","platformVersion":"8.1","sim":"00000000000","version":"1.6.0","username":"15600000000","password":"123456"}';
 
 		$cryptor = new \RNCryptor\Encryptor();
 		echo $base64Encrypted = $cryptor->encrypt($plaintext, $password);
+
+		//{"service":"service_SSO","method":"logIn","token":"3DA0B892E00D4EF89CDA112658532BB7DE2A634F","channel":"1001","deviceId":"DE2A634F-30EA-4287-BF4F-B546901CA2A5","imsi":"00000000","ipAddr":"0.0.0.0","addtionalDeviceId":"3DA0B892E00D4EF89CDA112658532BB7DE2A634F","macAddr":"0:0:0:0","model":"iPhone 5","platform":"iOS","platformVersion":"8.1","sim":"00000000000","version":"1.6.0","username":"15600000000","password":"123456"}
+
+		//AwFkQOuLiJL7aBt1L781UlfiHKCVS9UZ+vgP1spDbEtGgojPd74V9SJLAVtxlf1EUSXnk0jx3paMZHesJZ27VPL+dLeHTkEZM/SnOH3fHxpXIzpLCtphq3K8euOUISRoL4/Gzt/+maIxAz6cKZMNSc7hXcV2tjzH092PBdfqvRWsIzKLto0kP0SSpn+MnV9a9MEEQgodhYLN+KcToLFyzu0hOnK+Z6M+gMbt2+yLGBOLvPoYhLA7cn4v47YU92hLKod+YgAHANMxmMgMpZKfPC8VpvxHXAplItaFDXbnvkVa3qzPPjFAatYbZcS/h3+7w9YYq+do0fIabvdaOYxWyXKJX3E5tNKNI4YS8oAJGq9yi1ZYKstcZpLSQHjNO9EEP/j3HRQsSfASAuXnjKCP+OxkYwPh44HgVqMr7YcAZQNO7+t8Mt33OapDYXrA+kjq1nDAtvNXJolBdnrpWoFR5653oGEe8xUDFlBC7YSjWjfuc1F1MGOG+IFbs0rt+/+vPj5pkOWEvXxkg1w9PYlI3NjLjZBrFw6jcrJljLLas7rVbxPsaAN1K5xGdgHi/2jRgeiSD2gW/pqK+RN0zOkoAhlNLSThqLN6CgfsbgFXrgFlhtHBTgNFUa8dmwSj2j62k1XLI8SGxibvYT0lwczEOCtc
 
 	}
 	public function index(){

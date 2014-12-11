@@ -9,6 +9,13 @@ class service_SSO extends  REST_Controller {
 	}
 
 	public function login_post(){
+		//$service = $this->json('service');
+		/*
+		$ret = array(
+			'error'   => "200",
+			'service' => $service,
+		);
+		//$this->response($ret);
 		// $this->json->get() == $this->json->request
 		/*
 		echo $this->json->get('service');

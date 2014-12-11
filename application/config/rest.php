@@ -115,7 +115,7 @@ $config['auth_source'] = 'ldap';
 |	E.g: md5('admin:REST API:1234') = '1e957ebc35631ab22d5bd6526bd14ea2'
 |
 */
-$config['auth_library_class'] = '';
+$config['auth_library_class']    = '';
 $config['auth_library_function'] = '';
 
 /*

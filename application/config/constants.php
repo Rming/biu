@@ -37,5 +37,11 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+//10年有效期
+define('TOKEN_EXPIRED_AFTER',                    10*365*24*60*60);
+
+//性别
+define('MALE',                      10);
+define('FEMALE',                    11);
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
