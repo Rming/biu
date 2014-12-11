@@ -9,8 +9,7 @@ class Json{
 	protected   $encrypt_pass = "123456789";
 
 	public function __construct(){
-
-        $this->request = $this->_get_request_body();
+		$this->request = $this->_get_request_body();
 	}
 
 	function  get($key = NULL){
@@ -18,8 +17,9 @@ class Json{
 			return $this->request;
 		}
 
-		if(isset($this->request->$key)){
-			return $this->request->$key;
+		$request_obj      = json_decode($this->request);
+		if(isset($request_obj->$key)){
+			return $request_obj->$key;
 		}else{
 			return NULL;
 		}
@@ -35,17 +35,8 @@ class Json{
 			$cryptor = new \RNCryptor\Decryptor();
 			$http_body = $cryptor->decrypt($http_body, $this->encrypt_pass);
 
-			$json_obj = json_decode( $http_body);
-		}else{
-			$json_obj = json_decode( $http_body);
 		}
-
-		//不能正确json_decode的非json字符串
-		if(!$json_obj){
-			return $http_body;
-		}
-
-		return $json_obj;
+		return $http_body;
 	}
 
 	public function set_response($data){
@@ -73,6 +64,7 @@ class Json{
 	}
 
 	public function response($data){
+		//header?
 		echo $this->set_response($data);
 		exit;
 	}

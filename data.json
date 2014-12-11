@@ -1,0 +1,19 @@
+{
+	"service"          : "service_SSO",
+	"method"           : "logIn",
+	"token"            : "3DA0B892E00D4EF89CDA112658532BB7DE2A634F",
+	"channel"          : "1001",
+	"deviceId"         : "DE2A634F-30EA-4287-BF4F-B546901CA2A5",
+	"imsi"             : "00000000",
+	"ipAddr"           : "0.0.0.0",
+	"addtionalDeviceId": "3DA0B892E00D4EF89CDA112658532BB7DE2A634F",
+	"macAddr"          : "0:0:0:0",
+	"model"            : "iPhone 5",
+	"platform"         : "iOS",
+	"platformVersion"  : "8.1",
+	"sim"              : "00000000000",
+	"version"          : "1.6.0",
+
+	"username"         : "15600000000",
+	"password"         : "123456"
+}

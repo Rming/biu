@@ -8,7 +8,8 @@ class Base extends CI_Controller{
     }
 
     public function index(){
-        echo "service and method params required.";
+    	//echo $this->json->get('service');
+        //echo "service and method params required.";
     }
 
 }

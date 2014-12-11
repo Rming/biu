@@ -2,7 +2,6 @@
 
 class MY_Router extends CI_Router {
 
-	protected $request;
 
 	function __construct(){
 		parent::__construct();
@@ -105,10 +104,11 @@ class MY_Router extends CI_Router {
         if(count($segments) > 1 && strtolower($segments[0]) == 'api' && strtolower($segments[1]) == 'base'){
             require_once  APPPATH.'libraries/json.php';
 			$json_lib_router = new Json;
-            $this->request = $json_lib_router->get();
-            if(is_object($this->request) && isset($this->request->service , $this->request->method)) {
+            $request_body = $json_lib_router->get();
+            $request_obj = json_decode($request_body);
+            if(is_object($request_obj) && isset($request_obj->service , $request_obj->method)) {
                 $this->set_directory('api');
-                $x = array($this->request->service,$this->request->method);
+                $x = array($request_obj->service,$request_obj->method);
             }
         }
         return $x;

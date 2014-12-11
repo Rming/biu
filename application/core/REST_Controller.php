@@ -205,6 +205,9 @@ abstract class REST_Controller extends CI_Controller
         // This library is bundled with REST_Controller 2.5+, but will eventually be part of CodeIgniter itself
         $this->load->library('format');
 
+        //custom post json library
+        $this->load->library('json');
+
         // init objects
         $this->response     = new stdClass();
         $this->rest         = new stdClass();
@@ -494,9 +497,7 @@ abstract class REST_Controller extends CI_Controller
         }
 
         //是否输出加密
-        require_once  APPPATH.'libraries/json.php';
-        $json_lib_rest = new Json;
-        $output = $json_lib_rest->set_response($output);
+        $output = $this->json->set_response($output);
 
 
         set_status_header($http_code);
@@ -1082,6 +1083,20 @@ abstract class REST_Controller extends CI_Controller
 
         return array_key_exists($key, $this->_post_args) ? $this->_xss_clean($this->_post_args[$key], $xss_clean) : false;
     }
+
+    /**
+     * Retrieve a value from the POST JSON request arguments.
+     *
+     * @param  string  $key       The key for the POST JSON request argument to retrieve
+     * @param  boolean $xss_clean Whether the value should be XSS cleaned or not.
+     * @return string  The POST JSON argument value.
+     */
+    public function json($key = null)
+    {
+
+        return $this->json->get($key);
+    }
+
 
     /**
      * Retrieve a value from the PUT request arguments.
