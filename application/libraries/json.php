@@ -45,7 +45,7 @@ class Json{
 		}
 
 		if(is_array($data) || is_object($data)){
-			$data = json_encode($data);
+			$data = json_encode($data , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 		}
 
 		$isEncrypt = isset($_GET['isEncrypt'])?$_GET['isEncrypt']:false;
