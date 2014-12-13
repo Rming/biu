@@ -22,7 +22,7 @@ class Access_rest {
 		$allowned_uri = $this->CI->config->item('rest_allowned_uri');
 		$class_name   = $this->CI->json->get('service');
 		$method_name  = $this->CI->json->get('method');
-		if(in_array($class_name.'/'.$method_name, $allowned_uri)) {
+		if(in_array(strtolower($class_name.'/'.$method_name), $allowned_uri)) {
 			return true;
 		}
 

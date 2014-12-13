@@ -371,6 +371,7 @@ $config['allowned_uri']   = array(
 
 $config['rest_allowned_uri']   = array(
         'update/check',
+        'service_sso/login'
 );
 
 
