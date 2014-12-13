@@ -42,11 +42,14 @@ class Member_model extends MY_Model {
 		$token = sha1($id . 'token' . $password);
 
         $member = $this->get($id);
-		$member->password = $pwd;
-		$member->token    = strtoupper($token);
-		$member->token_at = time();
 
-        $this->db->update('member', $member, array('id' => $id));
+        $data = array(
+            'password' => $pwd,
+            'token' => strtoupper($token),
+            'token_at' => time(),
+        );
+        $data['id'] = $member->id;
+        $member = $this->save($data);
         return $member;
     }
 

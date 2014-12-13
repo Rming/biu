@@ -108,7 +108,14 @@ class MY_Router extends CI_Router {
             $request_obj = json_decode($request_body);
             if(is_object($request_obj) && isset($request_obj->service , $request_obj->method)) {
                 $this->set_directory('api');
-                $x = array($request_obj->service,$request_obj->method);
+
+				$service = strtolower($request_obj->service);
+				$method  = strtolower($request_obj->method);
+                if ( file_exists(APPPATH.'controllers/api/'.$service.'.php')){
+                	$x = array($service,$method);
+                }else{
+                	$x = array();
+                }
             }
         }
         return $x;

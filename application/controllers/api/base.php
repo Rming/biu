@@ -9,8 +9,8 @@ class Base extends CI_Controller{
 
     public function index(){
     	$ret = array(
-			'error' => 400,
-			'data'  => new stdClass,
+			'error' => "400",
+			'data'  => array(),
 		);
     	$this->json->response($ret);
     }

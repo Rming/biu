@@ -23,7 +23,7 @@ class Member extends  REST_Controller {
 		//if unique username
 		$username_unique = $this->form_validation->is_unique($username , "member.username");
 		if(!$username_unique){
-			$error_code = 407;
+			$error_code = "407";
 		}else{
 			$data = array(
 				'username'   => $username,
@@ -32,16 +32,16 @@ class Member extends  REST_Controller {
 
 			$member = $this->member_model->create($data , $password);
 			if($member){
-				$error_code = 200;
+				$error_code = "200";
 				$json_data  = $member;
 			}else{
-				$error_code = 500;
+				$error_code = "500";
 			}
 		}
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:new stdClass,
+			'data'  => isset($json_data)?$json_data:array(),
 		);
 
 		$this->response($ret);
@@ -65,18 +65,18 @@ class Member extends  REST_Controller {
 		if($member){
 			$login_check = $this->member_model->verify_login($member , $password);
 			if($login_check){
-				$error_code = 200;
+				$error_code = "200";
 				$json_data  = $member;
 			}else{
-				$error_code = 408;
+				$error_code = "408";
 			}
 		}else{
-			$error_code = 407;
+			$error_code = "407";
 		}
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:new stdClass,
+			'data'  => isset($json_data)?$json_data:array(),
 		);
 
 		$this->response($ret);
@@ -106,15 +106,15 @@ class Member extends  REST_Controller {
 			$data['id'] = $member->id;
 
 			$member_saved = $this->member_model->save($data);
-			$error_code = 200;
+			$error_code = "200";
 			$json_data  = $member_saved;
 		}else{
-			$error_code = 403;
+			$error_code = "403";
 		}
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:new stdClass,
+			'data'  => isset($json_data)?$json_data:array(),
 		);
 
 		$this->response($ret);
@@ -124,8 +124,8 @@ class Member extends  REST_Controller {
 		//empty username
 		if(!$username){
 			$ret = array(
-				'error' => 405,
-				'data'  => new stdClass,
+				'error' => "405",
+				'data'  => array(),
 			);
 
 			$this->response($ret);
@@ -134,8 +134,8 @@ class Member extends  REST_Controller {
 		//empty password
 		if($username && !$password){
 			$ret = array(
-				'error' => 406,
-				'data'  => new stdClass,
+				'error' => "406",
+				'data'  => array(),
 			);
 
 			$this->response($ret);
