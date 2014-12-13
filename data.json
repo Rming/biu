@@ -1,7 +1,7 @@
 {
-	"service"          : "service_SSO",
-	"method"           : "logIn",
-	"token"            : "3DA0B892E00D4EF89CDA112658532BB7DE2A634F",
+	"service"          : "member",
+	"method"           : "update",
+	"token"            : "F5064E77A632B53B3FD0C6BAC9C7279F3337D645",
 	"channel"          : "1001",
 	"deviceId"         : "DE2A634F-30EA-4287-BF4F-B546901CA2A5",
 	"imsi"             : "00000000",
@@ -14,6 +14,7 @@
 	"sim"              : "00000000000",
 	"version"          : "1.6.0",
 
-	"username"         : "15600000000",
-	"password"         : "123456"
+	"username"         : "rming",
+	"password"         : "123456",
+	"gender" : ""
 }

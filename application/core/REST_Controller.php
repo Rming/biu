@@ -15,6 +15,14 @@
  */
 abstract class REST_Controller extends CI_Controller
 {
+
+    /**
+     *
+     * 是否检查content-length 调试PHP错误的时候打开,其他情况关闭
+     *
+     *
+     */
+    public   $ignore_content_length = false;
     /**
      * This defines the rest format.
      *
@@ -507,7 +515,9 @@ abstract class REST_Controller extends CI_Controller
         // the reduction, causing the browser to hang waiting for more data.
         // We'll just skip content-length in those cases.
         if ( ! $this->_zlib_oc && ! $this->config->item('compress_output')) {
-            header('Content-Length: ' . strlen($output));
+            if(!$this->ignore_content_length){
+                header('Content-Length: ' . strlen($output));
+            }
         }
 
         if($continue){

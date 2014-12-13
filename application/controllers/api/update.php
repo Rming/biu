@@ -21,8 +21,7 @@ class Update extends  REST_Controller {
 				'vname'             => '1.2.2',
 			),
 		);
-		$this->json->response($ret);
-		exit;
+		$this->response($ret);
 	}
 
 }

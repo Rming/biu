@@ -29,18 +29,18 @@ class Access_rest {
 		//需要验证其 token
 		$token  = $this->CI->json->get('token');
 		if($token){
-			$member = $this->CI->member_model->where_one(array('token'=>$token));
+			$member = $this->CI->member_model->where_one(array('token'=>strtoupper($token)));
 			if($member){
 				//store member info in super object
 				$this->CI->login_member = $member;
 				//if expired
-				if($member->token_at && strtotime($member->token_at) + TOKEN_EXPIRED_AFTER < time()){
-					$ret = array('error' => '403');
+				if($member->token_at && $member->token_at + TOKEN_EXPIRED_AFTER < time()){
+					$ret = array('error' => '402');
 				}else{
 					return true;
 				}
 			}else{
-				$ret = array('error'=> '404');
+				$ret = array('error'=> '403');
 			}
 		}else{
 			$ret = array('error' => '401');
