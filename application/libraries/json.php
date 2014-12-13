@@ -73,6 +73,7 @@ class Json{
             flush();
         }else{
             echo $this->set_response($data);
+            exit;
         }
 	}
 
