@@ -7,6 +7,7 @@ class Access_rest {
 	public function __construct() {
         $this->CI =& get_instance();
         $this->CI->load->model('member_model');
+        $this->CI->load->model('request_log_model');
 	}
 
 	public function check() {
@@ -16,6 +17,11 @@ class Access_rest {
 		if($dir_name != 'api'){
 			return true;
 		}
+
+		//保存request到request_log表
+		$request = str_replace(PHP_EOL, '', $this->CI->json->request);
+		$request = preg_replace('/\s+/', '', $request);
+		$this->CI->request_log_model->save(array('request'=>$request));
 
 		//不需要验证的 service / method
 		//在 config.php 里设置 REST 白名单
