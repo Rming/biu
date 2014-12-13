@@ -34,7 +34,7 @@ $config['rest_default_format'] = 'json';
 |	'status'
 |
 */
-$config['rest_status_field_name'] = 'status';
+$config['rest_status_field_name'] = 'error';
 
 /*
 |--------------------------------------------------------------------------
