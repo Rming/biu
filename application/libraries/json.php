@@ -64,7 +64,7 @@ class Json{
 	}
 
 	public function response($data,$continue = false){
-		header('application/json;charset=utf-8');
+		header('Content-type: application/json;charset=utf-8');
 
         if($continue){
             echo $this->set_response($data);
