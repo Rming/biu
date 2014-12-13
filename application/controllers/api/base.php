@@ -8,9 +8,11 @@ class Base extends CI_Controller{
     }
 
     public function index(){
-    	$this->ret->set($data,$error_code = 200,$error_message = '');
-    	echo $this->json('service');
-        //echo "service and method params required.";
+    	$ret = array(
+			'error' => 400,
+			'data'  => new stdClass,
+		);
+    	$this->json->response($ret);
     }
 
 }
