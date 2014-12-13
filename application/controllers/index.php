@@ -6,7 +6,7 @@ class index extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function test(){
+	public function test1412251we1(){
 		require_once APPPATH.'libraries/RNCryptor/autoload.php';
 
 		$password = "123456789";
@@ -103,7 +103,7 @@ class index extends CI_Controller {
 		$poetry_index = mt_rand(0,count($poetry)-1);
 		$background_index = mt_rand(0,count($background)-1);
 		$data = array(
-			'title'      => 'sdut.me',
+			'title'      => $poetry[$poetry_index],
 			'poetry'     => $poetry[$poetry_index],
 			'background' => $background[$background_index],
 		);
