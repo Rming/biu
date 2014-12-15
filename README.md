@@ -74,7 +74,7 @@
 
 			{
 				"service"          : "member",
-				"method"           : "signup",
+				"method"           : "login",
 
 				"username"         : "rming",
 				"password"         : "123456",
