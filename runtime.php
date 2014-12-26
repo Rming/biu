@@ -44,7 +44,7 @@ if (defined('ENVIRONMENT'))
 			ini_set('display_errors', 0);
 			error_reporting(0);
 
-			define('DOMAIN',		'nvrenbang.com');
+			define('DOMAIN',         'app.zaofenxiang.com');
 		break;
 
 		default:
