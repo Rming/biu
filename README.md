@@ -219,7 +219,7 @@
 					"error": "200",
 					"data": {
 						"qiniu_bucket": "onmin",
-						"qiniu_token": "oExPi3tNsgEJiXK1ZBaDkf23kXaI6xeMqptTMW-w:mMdWEx_QOTo47QWiix8sm7s6O6w=:eyJzY29wZSI6Im9ubWluIiwiZGVhZGxpbmUiOjE0MTk2MjIwODJ9"
+						"qiniu_token": "oZBaMktNsgEJZGVhZiXK1Ex_QOTf23Ui2MjIwOD9ubw=:eWlaI6xeMqptTMW-:fmMdWOjE0k47QD6xpbmWiix8sm7s6O6yJImuIiwiGzY29kJ9wZSITMqptTMW"
 					}
 				}
 
