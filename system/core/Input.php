@@ -724,19 +724,26 @@ class CI_Input {
 	* @param	string
 	* @return	string
 	*/
-	function _clean_input_keys($str)
+	protected function _clean_input_keys($str, $fatal = TRUE)
 	{
-		if ( ! preg_match("/^[a-z0-9:_\/-]+$/i", $str))
+		if ( ! preg_match('/^[a-z0-9:_\/|-]+$/i', $str))
 		{
-			exit('Disallowed Key Characters.');
+			if ($fatal === TRUE)
+			{
+				return FALSE;
+			}
+			else
+			{
+				set_status_header(503);
+				echo 'Disallowed Key Characters.';
+				exit(EXIT_USER_INPUT);
+			}
 		}
-
 		// Clean UTF-8 if supported
 		if (UTF8_ENABLED === TRUE)
 		{
-			$str = $this->uni->clean_string($str);
+			return $this->uni->clean_string($str);
 		}
-
 		return $str;
 	}
 
