@@ -20,6 +20,35 @@
 	isEncrypt | 1 | 加密传输
 
 
+- ####检查用户名是否已存在
+
+	- **必须参数**
+
+			{
+				"service"          : "member",
+				"method"           : "check_username",
+
+				"username"         : "rming",
+			}
+
+	- **返回参考**
+
+		- *成功*
+
+				{
+					"error": "200",
+					"data": {}
+				}
+
+		- *失败*
+
+				{
+					"error":"409",
+					"data":{}
+				}
+
+
+
 - ####注册
 
 	- **必须参数**
@@ -166,8 +195,42 @@
 
 				{
 					"error":"403",
+					"data" :{}
+				}
+
+
+- ####获取七牛文件上传token
+
+	- **必须参数**
+
+			{
+				"service"      : "qiniu",
+				"method"       : "get_token",
+
+				"qiniu_bucket" :"onemin",
+			}
+
+
+	- **返回参考**
+
+		- *成功*
+
+				{
+					"error": "200",
+					"data": {
+						"qiniu_bucket": "onmin",
+						"qiniu_token": "oExPi3tNsgEJiXK1ZBaDkf23kXaI6xeMqptTMW-w:mMdWEx_QOTo47QWiix8sm7s6O6w=:eyJzY29wZSI6Im9ubWluIiwiZGVhZGxpbmUiOjE0MTk2MjIwODJ9"
+					}
+				}
+
+		- *失败*
+
+				{
+					"error":"420",
 					"data":{}
 				}
+
+
 
 
 - ####错误代码
@@ -186,5 +249,8 @@
 	406 | 缺少参数密码   password
 	407 | 用户名错误
 	408 | 密码错误
+	409 | 用户名已存在
+	- | -
+	420 | bucket 参数错误
 	- | -
 	500 | 服务器错误

@@ -374,6 +374,7 @@ $config['rest_allowned_uri']   = array(
         'update/check',
         'member/signup',
         'member/login',
+        'qiniu/get_token',
 );
 
 

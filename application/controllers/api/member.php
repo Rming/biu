@@ -8,6 +8,27 @@ class Member extends  REST_Controller {
 		parent::__construct();
 		$this->load->model('member_model');
 	}
+	public function check_username_post(){
+		$username = $this->json('username');
+
+		$this->filter_empty_username_password($username , 'password');
+
+		//if unique username
+		$username_unique = $this->form_validation->is_unique($username , "member.username");
+		if(!$username_unique){
+			$error_code = "409";
+		}else{
+			$error_code = "200";
+		}
+
+		$ret = array(
+			'error' => $error_code,
+			'data'  => isset($json_data)?$json_data:array(),
+		);
+
+		$this->response($ret);
+
+	}
 	/**
 	 * 注册接口
 	 * @param username , json param 用户名
@@ -23,7 +44,7 @@ class Member extends  REST_Controller {
 		//if unique username
 		$username_unique = $this->form_validation->is_unique($username , "member.username");
 		if(!$username_unique){
-			$error_code = "407";
+			$error_code = "409";
 		}else{
 			$data = array(
 				'username'   => $username,

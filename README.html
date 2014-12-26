@@ -1015,27 +1015,98 @@ body .markdown-body
     page-break-after: avoid;
   }
 }
-</style><title>README</title></head><body><article class="markdown-body"><div class="toc">
+</style><style>.codehilite pre .hll { background-color: #f8eec7 }
+.codehilite pre  { background: #ffffff; color: #333333 }
+.codehilite pre .c { color: #999988; font-style: italic } /* Comment */
+.codehilite pre .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite pre .k { font-weight: bold } /* Keyword */
+.codehilite pre .n { color: #333333 } /* Name */
+.codehilite pre .o { font-weight: bold } /* Operator */
+.codehilite pre .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.codehilite pre .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.codehilite pre .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.codehilite pre .cs { color: #999988; font-style: italic } /* Comment.Special */
+.codehilite pre .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.codehilite pre .ge { font-style: italic } /* Generic.Emph */
+.codehilite pre .gr { color: #aa0000 } /* Generic.Error */
+.codehilite pre .gh { color: #999999 } /* Generic.Heading */
+.codehilite pre .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.codehilite pre .go { color: #888888 } /* Generic.Output */
+.codehilite pre .gp { color: #555555 } /* Generic.Prompt */
+.codehilite pre .gs { font-weight: bold } /* Generic.Strong */
+.codehilite pre .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite pre .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite pre .kc { font-weight: bold } /* Keyword.Constant */
+.codehilite pre .kd { font-weight: bold } /* Keyword.Declaration */
+.codehilite pre .kn { font-weight: bold } /* Keyword.Namespace */
+.codehilite pre .kp { font-weight: bold } /* Keyword.Pseudo */
+.codehilite pre .kr { font-weight: bold } /* Keyword.Reserved */
+.codehilite pre .kt { font-weight: bold } /* Keyword.Type */
+.codehilite pre .m { color: #945277 } /* Literal.Number */
+.codehilite pre .s { color: #df5000 } /* Literal.String */
+.codehilite pre .na { color: #008080 } /* Name.Attribute */
+.codehilite pre .nb { color: #0086b3 } /* Name.Builtin */
+.codehilite pre .nc { color: #445588; font-weight: bold } /* Name.Class */
+.codehilite pre .no { color: #094e99 } /* Name.Constant */
+.codehilite pre .nd { color: #333333 } /* Name.Decorator */
+.codehilite pre .ni { color: #800080 } /* Name.Entity */
+.codehilite pre .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.codehilite pre .nf { color: #945277; font-weight: bold } /* Name.Function */
+.codehilite pre .nl { color: #333333 } /* Name.Label */
+.codehilite pre .nn { color: #555555 } /* Name.Namespace */
+.codehilite pre .nx { color: #333333 } /* Name.Other */
+.codehilite pre .py { color: #333333 } /* Name.Property */
+.codehilite pre .nt { color: #000080 } /* Name.Tag */
+.codehilite pre .nv { color: #008080 } /* Name.Variable */
+.codehilite pre .ow { font-weight: bold } /* Operator.Word */
+.codehilite pre .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite pre .mb { color: #945277 } /* Literal.Number.Bin */
+.codehilite pre .mf { color: #945277 } /* Literal.Number.Float */
+.codehilite pre .mh { color: #945277 } /* Literal.Number.Hex */
+.codehilite pre .mi { color: #945277 } /* Literal.Number.Integer */
+.codehilite pre .mo { color: #945277 } /* Literal.Number.Oct */
+.codehilite pre .sb { color: #df5000 } /* Literal.String.Backtick */
+.codehilite pre .sc { color: #df5000 } /* Literal.String.Char */
+.codehilite pre .sd { color: #df5000 } /* Literal.String.Doc */
+.codehilite pre .s2 { color: #df5000 } /* Literal.String.Double */
+.codehilite pre .se { color: #df5000 } /* Literal.String.Escape */
+.codehilite pre .sh { color: #df5000 } /* Literal.String.Heredoc */
+.codehilite pre .si { color: #df5000 } /* Literal.String.Interpol */
+.codehilite pre .sx { color: #df5000 } /* Literal.String.Other */
+.codehilite pre .sr { color: #017936 } /* Literal.String.Regex */
+.codehilite pre .s1 { color: #df5000 } /* Literal.String.Single */
+.codehilite pre .ss { color: #8b467f } /* Literal.String.Symbol */
+.codehilite pre .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.codehilite pre .vc { color: #008080 } /* Name.Variable.Class */
+.codehilite pre .vg { color: #008080 } /* Name.Variable.Global */
+.codehilite pre .vi { color: #008080 } /* Name.Variable.Instance */
+.codehilite pre .il { color: #945277 } /* Literal.Number.Integer.Long */</style><title>README</title></head><body><article class="markdown-body"><div class="toc">
 <ul>
 <li><a href="#_1">接口地址</a></li>
 <li><a href="#_2">加密</a></li>
-<li><a href="#_3">注册</a></li>
-<li><a href="#_4">登录</a></li>
-<li><a href="#_5">更新</a></li>
-<li><a href="#_6">错误代码</a></li>
+<li><a href="#_3">检查用户名是否已存在</a></li>
+<li><a href="#_4">注册</a></li>
+<li><a href="#_5">登录</a></li>
+<li><a href="#_6">更新</a></li>
+<li><a href="#token">获取七牛文件上传token</a></li>
+<li><a href="#_7">错误代码</a></li>
 </ul>
 </div>
 <ul>
 <li>
 <h4 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口地址</h4>
-<pre><code>http://app.zaofenxiang.com/api/base
-</code></pre>
+<div class="codehilite"><pre><span class="nl">http:</span><span class="o">//</span><span class="vg">app</span><span class="o">.</span><span class="vg">zaofenxiang</span><span class="o">.</span><span class="vg">com</span><span class="o">/</span><span class="vg">api</span><span class="o">/</span><span class="vg">base</span>
+</pre></div>
+
+
 </li>
 <li>
 <h4 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>加密</h4>
 <p><strong>密钥:</strong></p>
-<pre><code>123456789
-</code></pre>
+<div class="codehilite"><pre><span class="nl">123456789</span><span class="w"></span>
+</pre></div>
+
+
 <p><strong>参数:</strong></p>
 <table>
 <thead>
@@ -1060,172 +1131,286 @@ body .markdown-body
 </table>
 </li>
 <li>
-<h4 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>注册</h4>
+<h4 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>检查用户名是否已存在</h4>
 <ul>
 <li>
 <p><strong>必须参数</strong></p>
-<pre><code>{
-    &ldquo;service&rdquo;          : &ldquo;member&rdquo;,
-    &ldquo;method&rdquo;           : &ldquo;signup&rdquo;,
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;member&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;check_username&quot;</span><span class="p">,</span>
 
-    &ldquo;username&rdquo;         : &ldquo;rming&rdquo;,
-    &ldquo;password&rdquo;         : &ldquo;123456&rdquo;,
-}</code></pre>
+<span class="w">    </span><span class="s2">&quot;username&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 <li>
 <p><strong>返回参考</strong></p>
 <ul>
 <li>
 <p><em>成功</em></p>
-<pre><code>{
-    &ldquo;error&rdquo;: &ldquo;200&rdquo;,
-    &ldquo;data&rdquo;: {
-        &ldquo;id&rdquo;         : &ldquo;12&rdquo;,
-        &ldquo;username&rdquo;   : &ldquo;rming&rdquo;,
-        &ldquo;password&rdquo;   : &ldquo;60f9371b4c341a5b9409b885ec56d36118bc66e3&rdquo;,
-        &ldquo;nickname&rdquo;   : null,
-        &ldquo;description&rdquo;: null,
-        &ldquo;gender&rdquo;     : null,
-        &ldquo;birthday&rdquo;   : null,
-        &ldquo;phone&rdquo;      : null,
-        &ldquo;avatar&rdquo;     : null,
-        &ldquo;background&rdquo; : null,
-        &ldquo;lat&rdquo;        : null,
-        &ldquo;lon&rdquo;        : null,
-        &ldquo;address&rdquo;    : null,
-        &ldquo;from_where&rdquo; : null,
-        &ldquo;third_nick&rdquo; : null,
-        &ldquo;token&rdquo;      : &ldquo;031692B891F2DD6A58D2F2F088024274853D5789&rdquo;,
-        &ldquo;token_at&rdquo;   : &ldquo;1418468321&rdquo;,
-        &ldquo;created_at&rdquo; : &ldquo;1418468321&rdquo;
-    }
-}</code></pre>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 <li>
 <p><em>失败</em></p>
-<pre><code>{
-    &ldquo;error&rdquo;:&rdquo;407&rdquo;,
-    &ldquo;data&rdquo;:{}
-}</code></pre>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;409&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<h4 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>登录</h4>
+<h4 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>注册</h4>
 <ul>
 <li>
 <p><strong>必须参数</strong></p>
-<pre><code>{
-    &ldquo;service&rdquo;          : &ldquo;member&rdquo;,
-    &ldquo;method&rdquo;           : &ldquo;login&rdquo;,
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;member&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;signup&quot;</span><span class="p">,</span>
 
-    &ldquo;username&rdquo;         : &ldquo;rming&rdquo;,
-    &ldquo;password&rdquo;         : &ldquo;123456&rdquo;,
-}</code></pre>
+<span class="w">    </span><span class="s2">&quot;username&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;password&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 <li>
 <p><strong>返回参考</strong></p>
 <ul>
 <li>
 <p><em>成功</em></p>
-<pre><code>{
-    &ldquo;error&rdquo;: &ldquo;200&rdquo;,
-    &ldquo;data&rdquo;: {
-        &ldquo;id&rdquo;         : &ldquo;12&rdquo;,
-        &ldquo;username&rdquo;   : &ldquo;rming&rdquo;,
-        &ldquo;password&rdquo;   : &ldquo;60f9371b4c341a5b9409b885ec56d36118bc66e3&rdquo;,
-        &ldquo;nickname&rdquo;   : null,
-        &ldquo;description&rdquo;: null,
-        &ldquo;gender&rdquo;     : null,
-        &ldquo;birthday&rdquo;   : null,
-        &ldquo;phone&rdquo;      : null,
-        &ldquo;avatar&rdquo;     : null,
-        &ldquo;background&rdquo; : null,
-        &ldquo;lat&rdquo;        : null,
-        &ldquo;lon&rdquo;        : null,
-        &ldquo;address&rdquo;    : null,
-        &ldquo;from_where&rdquo; : null,
-        &ldquo;third_nick&rdquo; : null,
-        &ldquo;token&rdquo;      : &ldquo;031692B891F2DD6A58D2F2F088024274853D5789&rdquo;,
-        &ldquo;token_at&rdquo;   : &ldquo;1418468321&rdquo;,
-        &ldquo;created_at&rdquo; : &ldquo;1418468321&rdquo;
-    }
-}</code></pre>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;username&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;password&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;60f9371b4c341a5b9409b885ec56d36118bc66e3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;nickname&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;gender&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;birthday&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;phone&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;avatar&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;background&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;lat&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;lon&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;address&quot;</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;from_where&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;third_nick&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;token&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;031692B891F2DD6A58D2F2F088024274853D5789&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;token_at&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1418468321&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1418468321&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 <li>
 <p><em>失败</em></p>
-<pre><code>{
-    &ldquo;error&rdquo;:&rdquo;408&rdquo;,
-    &ldquo;data&rdquo;:{}
-}</code></pre>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;407&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<h4 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>更新</h4>
+<h4 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>登录</h4>
 <ul>
 <li>
 <p><strong>必须参数</strong></p>
-<pre><code>{
-    &ldquo;service&rdquo;    : &ldquo;member&rdquo;,
-    &ldquo;method&rdquo;     : &ldquo;update&rdquo;,
-    &ldquo;token&rdquo;      :&rdquo;031692B891F2DD6A58D2F2F088024274853D5789&rdquo;,
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;member&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">           </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;login&quot;</span><span class="p">,</span>
 
-    //资料参数,可选
-    &ldquo;nickname&rdquo;   :&rdquo;阿明&rdquo;,
-    &ldquo;description&rdquo;:&rdquo;阿明的帐号,欢迎关注.&rdquo;,
-    &ldquo;gender&rdquo;     :&rdquo;0&rdquo;,
-    &ldquo;lat&rdquo;        :&rdquo;128.214512&rdquo;,
-    &ldquo;lon&rdquo;        :&rdquo;2214.514121&rdquo;,
-    &ldquo;address&rdquo;    :&rdquo;china beijing chaoyang 望京&rdquo;
-}</code></pre>
+<span class="w">    </span><span class="s2">&quot;username&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;password&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 <li>
 <p><strong>返回参考</strong></p>
 <ul>
 <li>
 <p><em>成功</em></p>
-<pre><code>{
-    &ldquo;error&rdquo;: &ldquo;200&rdquo;,
-    &ldquo;data&rdquo;: {
-        &ldquo;id&rdquo;         : &ldquo;12&rdquo;,
-        &ldquo;username&rdquo;   : &ldquo;rming&rdquo;,
-        &ldquo;password&rdquo;   : &ldquo;60f9371b4c341a5b9409b885ec56d36118bc66e3&rdquo;,
-        &ldquo;nickname&rdquo;   : &ldquo;阿明&rdquo;,
-        &ldquo;description&rdquo;: &ldquo;阿明的帐号,欢迎关注.&rdquo;,
-        &ldquo;gender&rdquo;     : &ldquo;0&rdquo;,
-        &ldquo;birthday&rdquo;   : null,
-        &ldquo;phone&rdquo;      : null,
-        &ldquo;avatar&rdquo;     : null,
-        &ldquo;background&rdquo; : null,
-        &ldquo;lat&rdquo;        : &ldquo;128.214512&rdquo;,
-        &ldquo;lon&rdquo;        : &ldquo;2214.514121&rdquo;,
-        &ldquo;address&rdquo;    : &ldquo;china beijing chaoyang 望京&rdquo;,
-        &ldquo;from_where&rdquo; : null,
-        &ldquo;third_nick&rdquo; : null,
-        &ldquo;token&rdquo;      : &ldquo;031692B891F2DD6A58D2F2F088024274853D5789&rdquo;,
-        &ldquo;token_at&rdquo;   : &ldquo;1418468321&rdquo;,
-        &ldquo;created_at&rdquo; : &ldquo;1418468321&rdquo;
-    }
-}</code></pre>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;username&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;password&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;60f9371b4c341a5b9409b885ec56d36118bc66e3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;nickname&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;gender&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;birthday&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;phone&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;avatar&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;background&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;lat&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;lon&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;address&quot;</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;from_where&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;third_nick&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;token&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;031692B891F2DD6A58D2F2F088024274853D5789&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;token_at&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1418468321&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1418468321&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 <li>
 <p><em>失败</em></p>
-<pre><code>{
-    &ldquo;error&rdquo;:&rdquo;403&rdquo;,
-    &ldquo;data&rdquo;:{}
-}</code></pre>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;408&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 </li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<h4 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>错误代码</h4>
+<h4 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>更新</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;member&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;update&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;token&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;031692B891F2DD6A58D2F2F088024274853D5789&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="o">//</span><span class="vg">资料参数</span><span class="p">,</span><span class="vg">可选</span>
+<span class="w">    </span><span class="s2">&quot;nickname&quot;</span><span class="w">   </span><span class="o">:</span><span class="s2">&quot;阿明&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="s2">&quot;阿明的帐号,欢迎关注.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;gender&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;lat&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;128.214512&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;lon&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;2214.514121&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;address&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;china beijing chaoyang 望京&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;username&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;password&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;60f9371b4c341a5b9409b885ec56d36118bc66e3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;nickname&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;阿明&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;阿明的帐号,欢迎关注.&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;gender&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;birthday&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;phone&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;avatar&quot;</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;background&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;lat&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;128.214512&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;lon&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2214.514121&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;address&quot;</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;china beijing chaoyang 望京&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;from_where&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;third_nick&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="vg">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;token&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;031692B891F2DD6A58D2F2F088024274853D5789&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;token_at&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1418468321&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1418468321&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;403&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w"> </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="token"><a name="user-content-token" href="#token" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>获取七牛文件上传token</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;qiniu&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;get_token&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="s2">&quot;qiniu_bucket&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;onemin&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;qiniu_bucket&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;onmin&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;qiniu_token&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;oExPi3tNsgEJiXK1ZBaDkf23kXaI6xeMqptTMW-w:mMdWEx_QOTo47QWiix8sm7s6O6w=:eyJzY29wZSI6Im9ubWluIiwiZGVhZGxpbmUiOjE0MTk2MjIwODJ9&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;420&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>错误代码</h4>
 <table>
 <thead>
 <tr>
@@ -1277,6 +1462,18 @@ body .markdown-body
 <tr>
 <td>408</td>
 <td>密码错误</td>
+</tr>
+<tr>
+<td>409</td>
+<td>用户名已存在</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>420</td>
+<td>bucket 参数错误</td>
 </tr>
 <tr>
 <td>-</td>
