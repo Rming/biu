@@ -28,7 +28,7 @@
 				"service"          : "member",
 				"method"           : "check_username",
 
-				"username"         : "rming",
+				"username"         : "rming"
 			}
 
 	- **返回参考**
@@ -58,7 +58,7 @@
 				"method"           : "signup",
 
 				"username"         : "rming",
-				"password"         : "123456",
+				"password"         : "123456"
 			}
 
 	- **返回参考**
@@ -106,7 +106,7 @@
 				"method"           : "login",
 
 				"username"         : "rming",
-				"password"         : "123456",
+				"password"         : "123456"
 			}
 
 	- **返回参考**
@@ -207,7 +207,7 @@
 				"service"      : "qiniu",
 				"method"       : "get_token",
 
-				"qiniu_bucket" :"onemin",
+				"qiniu_bucket" :"onemin"
 			}
 
 
