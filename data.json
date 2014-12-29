@@ -1,7 +1,7 @@
 {
 	"service"          : "member",
 	"method"           : "update",
-	"token"            : "23F1744475AC8F0889163704C9FF77C82C4C973F",
+	"token"            : "5CC685F9CFD21CDD9F17B84F487FAD0801E7506E",
 	"channel"          : "1001",
 	"deviceId"         : "DE2A634F-30EA-4287-BF4F-B546901CA2A5",
 	"imsi"             : "00000000",
@@ -14,7 +14,7 @@
 	"sim"              : "00000000000",
 	"version"          : "1.6.0",
 
-	"username"         : "rming",
-	"password"         : "123456",
-	"gender" : ""
+	"username"         : "15144777744",
+	"description"      : "😕",
+	"nickname":"阿明😯"
 }
