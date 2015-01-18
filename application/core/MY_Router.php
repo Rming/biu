@@ -102,9 +102,16 @@ class MY_Router extends CI_Router {
 	public function api_router($segments) {
 		$x = array();
         if(count($segments) > 1 && strtolower($segments[0]) == 'api' && strtolower($segments[1]) == 'base'){
-            require_once  APPPATH.'libraries/json.php';
-			$json_lib_router = new Json;
-            $request_body = $json_lib_router->get();
+			$http_body = trim(file_get_contents('php://input'));
+			$isEncrypt = isset($_GET['isEncrypt'])?$_GET['isEncrypt']:false;
+			if($isEncrypt){
+				require_once APPPATH.'libraries/RNCryptor/autoload.php';
+				$cryptor = new \RNCryptor\Decryptor();
+				$http_body = $cryptor->decrypt($http_body, $this->encrypt_pass);
+
+			}
+			$request_body = $httlsp_body;
+
             $request_obj = json_decode($request_body);
             if(is_object($request_obj) && isset($request_obj->service , $request_obj->method)) {
                 $this->set_directory('api');
