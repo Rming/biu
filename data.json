@@ -1,20 +1,38 @@
 {
-	"service"          : "member",
-	"method"           : "update",
-	"token"            : "5CC685F9CFD21CDD9F17B84F487FAD0801E7506E",
-	"channel"          : "1001",
-	"deviceId"         : "DE2A634F-30EA-4287-BF4F-B546901CA2A5",
-	"imsi"             : "00000000",
-	"ipAddr"           : "0.0.0.0",
-	"addtionalDeviceId": "3DA0B892E00D4EF89CDA112658532BB7DE2A634F",
-	"macAddr"          : "0:0:0:0",
-	"model"            : "iPhone 5",
-	"platform"         : "iOS",
-	"platformVersion"  : "8.1",
-	"sim"              : "00000000000",
-	"version"          : "1.6.0",
+	"service"      : "biu",
+	"method"       : "create",
+	"token"        : "868F849B0AC795C3CF65E7221EF1FB812D4EB7C8",
 
-	"username"         : "15144777744",
-	"description"      : "😕",
-	"nickname":"阿明😯"
+	"attachment": [
+        {
+            "url"   : "http://baidu.com",
+            "type"  : "20",
+            "scale" : "1.3333",
+            "tag"   : [
+                {
+                    "name"        : "北京",
+                    "position_x"  : "12",
+                    "position_y"  : "22"
+                }
+            ]
+        },
+        {
+            "url"   : "http://google.com",
+            "type"  : "20",
+            "scale" : "0.1234",
+            "tag"   : [
+                {
+                    "name"        : "北京",
+                    "position_x"  : "12",
+                    "position_y"  : "22"
+                },
+                {
+                    "name"        : "上海",
+                    "position_x"  : "22",
+                    "position_y"  : "9"
+                }
+            ]
+        }
+    ],
+    "description": "hello biu~"
 }

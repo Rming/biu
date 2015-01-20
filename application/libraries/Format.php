@@ -227,7 +227,7 @@ class Format {
 		$callback = isset($_GET['callback']) ? $_GET['callback'] : '';
 		if ($callback === '')
 		{
-            return json_encode($this->_data,JSON_FORCE_OBJECT| JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+            return json_encode($this->_data,JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
             /* Had to take out this code, it doesn't work on Objects.
             $str = $this->_data;
@@ -248,13 +248,13 @@ class Format {
 		{
 			// this is a jsonp request, the content-type must be updated to be text/javascript
 			header("Content-Type: application/javascript");
-			return $callback . "(" . json_encode($this->_data , JSON_FORCE_OBJECT| JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . ");";
+			return $callback . "(" . json_encode($this->_data , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . ");";
 		}
 		else
 		{
 			// we have an invalid jsonp callback identifier, we'll return plain json with a warning field
 			$this->_data['warning'] = "invalid jsonp callback provided: ".$callback;
-			return json_encode($this->_data ,JSON_FORCE_OBJECT| JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+			return json_encode($this->_data ,JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 		}
 	}
 

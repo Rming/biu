@@ -100,9 +100,11 @@ class MY_Model extends CI_Model {
 
         return $this->db->get()->result();
     }
-
-    public function where_one($data) {
-        $objs = $this->where($data);
+    public function where_one($data, $order_by=NULL) {
+        if(!$order_by) {
+            $this->db->order_by('id DESC');
+        }
+        $objs = $this->where($data, 1, $order_by);
         if (count($objs) > 0) {
             return $objs[0];
         } else {

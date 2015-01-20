@@ -23,7 +23,7 @@ class Member extends  REST_Controller {
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:array(),
+			'data'  => isset($json_data)?$json_data:(new stdClass),
 		);
 
 		$this->response($ret);
@@ -62,7 +62,7 @@ class Member extends  REST_Controller {
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:array(),
+			'data'  => isset($json_data)?$json_data:(new stdClass),
 		);
 
 		$this->response($ret);
@@ -97,7 +97,7 @@ class Member extends  REST_Controller {
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:array(),
+			'data'  => isset($json_data)?$json_data:(new stdClass),
 		);
 
 		$this->response($ret);
@@ -135,7 +135,7 @@ class Member extends  REST_Controller {
 
 		$ret = array(
 			'error' => $error_code,
-			'data'  => isset($json_data)?$json_data:array(),
+			'data'  => isset($json_data)?$json_data:(new stdClass),
 		);
 
 		$this->response($ret);
@@ -156,7 +156,7 @@ class Member extends  REST_Controller {
 		if($username && !$password){
 			$ret = array(
 				'error' => "406",
-				'data'  => array(),
+				'data'  => (new stdClass),
 			);
 
 			$this->response($ret);

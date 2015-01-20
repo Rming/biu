@@ -10,7 +10,7 @@ class Base extends CI_Controller{
     public function index(){
     	$ret = array(
 			'error' => "400",
-			'data'  => array(),
+			'data'  => (new stdClass),
 		);
     	$this->json->response($ret);
     }

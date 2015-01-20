@@ -7,166 +7,146 @@ class Biu extends  REST_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('biu_model');
+        $this->load->model('biu_attachment_model');
         $this->load->model('attachment_model');
-        $this->load->model('resources_model');
-        $this->load->model('comment_model');
+        $this->load->model('attachment_tag_model');
+        $this->load->model('tag_model');
+        $this->load->model('tag_unique_model');
         $this->load->model('like_model');
-
+        $this->load->model('comment_model');
     }
-    public function create(){
-        $username = $this->json('username');
 
-        $this->filter_empty_username_password($username , 'password');
+    /*
+        "attachment": [
+            {
+                "url"   : "http://baidu.com",
+                "type"  : "aa",
+                "scale" : "1.3333",
+                "tag"   : [
+                    {
+                        "name"        : "北京",
+                        "position_x"  : "12",
+                        "position_y"  : "22"
+                    }
+                ]
+            },
+            {
+                "url"   : "http://google.com",
+                "type"  : "aa",
+                "scale" : "0.1234",
+                "tag"   : [
+                    {
+                        "name"        : "北京",
+                        "position_x"  : "12",
+                        "position_y"  : "22"
+                    },
+                    {
+                        "name"        : "上海",
+                        "position_x"  : "22",
+                        "position_y"  : "9"
+                    }
+                ]
+            }
+        ],
+        "description": "hello biu~"
 
-        //if unique username
-        $username_unique = $this->form_validation->is_unique($username , "member.username");
-        if(!$username_unique){
-            $error_code = "409";
-        }else{
-            $error_code = "200";
-        }
+    */
+    public function create_post(){
+        $attachment  = $this->json('attachment');
+        $description = $this->json('description');
 
-        $ret = array(
-            'error' => $error_code,
-            'data'  => isset($json_data)?$json_data:array(),
-        );
+        $this->filter_empty_both($attachment , $description);
 
-        $this->response($ret);
+        //保存biu~
+        $data = [
+            'creator_id'  => $this->login_member->id,
+            'description' => $description,
+            'created_at'  => time(),
+        ];
+        $biu_save = $this->biu_model->save($data);
 
-    }
-    /**
-     * 注册接口
-     * @param username , json param 用户名
-     * @param password , json param 密码
-     * @return member json data 用户信息
-     */
-    public function signup_post(){
-        $username = $this->json('username');
-        $password = $this->json('password');
+        $attachments_save = [];
+        if(is_array($attachment) && count($attachment)) {
+            foreach ($attachment as $att) {
+                $att = (array)$att;
+                //attachment保存
+                $data = [
+                    'type'       => isset($att['type'])?$att['type']:TYPE_IMAGE,
+                    'url'        => isset($att['url'])?$att['url']:null,
+                    'scale'      => isset($att['scale'])?$att['scale']:0,
+                    'created_at' => time(),
+                ];
+                $data     = array_filter($data);
+                $att_save = $this->attachment_model->save($data);
+                //attachment 和 biu的关系
+                $data = [
+                    'biu_id'        => $biu_save->id,
+                    'attachment_id' => $att_save->id,
+                    'created_at'    => time(),
+                ];
+                $biu_att_map = $this->biu_attachment_model->save($data);
+                //tag保存
+                $tags_save = [];
+                if(isset($att['tag']) && is_array($att['tag'])) {
+                    foreach ($att['tag'] as $tag) {
+                        $tag      = (array)$tag;
+                        $tag_name = isset($tag['name'])?$tag['name']:null;
+                        $tag_get  = $this->tag_unique_model->where_one(['name' => $tag_name]);
+                        if(!$tag_get) {
+                            //slug处理
+                            $data = [
+                                'name'       => $tag_name,
+                                'slug'       => "abcdef",
+                                'created_at' => time(),
+                            ];
+                            $tag_get  = $this->tag_unique_model->save($data);
+                        }
+                        $data = [
+                            'tag_unique_id' => $tag_get->id,
+                            'position_x'    => isset($tag['position_x'])?$tag['position_x']:null,
+                            'position_y'    => isset($tag['position_y'])?$tag['position_y']:null,
+                            'created_at'    => time(),
+                        ];
+                        $tag_save    = $this->tag_model->save($data);
+                        $tag_save->name        = $tag_get->name;
+                        $tag_save->description = $tag_get->description;
+                        $tag_save->slug        = $tag_get->slug;
+                        $tags_save[] = $tag_save;
+                        //tag attachment 关系
+                        $data = [
+                            'attachment_id' => $att_save->id,
+                            'tag_id'        => $tag_save->id,
+                            'created_at'    => time(),
+                        ];
+                        $att_tag_map = $this->attachment_tag_model->save($data);
+                    }
+                    $att_save->tag = $tags_save;
+                }
 
-        $this->filter_empty_username_password($username , $password);
-
-        //if unique username
-        $username_unique = $this->form_validation->is_unique($username , "member.username");
-        if(!$username_unique){
-            $error_code = "409";
-        }else{
-            $data = array(
-                'username'   => $username,
-                'created_at' => time(),
-            );
-
-            $member = $this->member_model->create($data , $password);
-            if($member){
-                $error_code = "200";
-                $json_data  = $member;
-            }else{
-                $error_code = "500";
+                $attachments_save[] = $att_save;
             }
         }
-
+        $biu_save->attachment = $attachments_save;
         $ret = array(
-            'error' => $error_code,
-            'data'  => isset($json_data)?$json_data:array(),
+            'error' => "200",
+            'data'  => $biu_save?:(new stdClass),
         );
-
         $this->response($ret);
     }
 
-
-    /**
-     * 登陆验证接口
-     * @param username , json param 用户名
-     * @param password , json param 密码
-     * @return member json data 用户信息
-     */
-
-    public function login_post(){
-        $username = $this->json('username');
-        $password = $this->json('password');
-
-        $this->filter_empty_username_password($username , $password);
-
-        $member = $this->member_model->where_one(array('username'=>$username));
-        if($member){
-            $login_check = $this->member_model->verify_login($member , $password);
-            if($login_check){
-                $error_code = "200";
-                $json_data  = $member;
-            }else{
-                $error_code = "408";
-            }
-        }else{
-            $error_code = "407";
+    protected function filter_empty_both($attachment , $description){
+        if($description==='0'||$description===0){
+            return true;
         }
-
-        $ret = array(
-            'error' => $error_code,
-            'data'  => isset($json_data)?$json_data:array(),
-        );
-
-        $this->response($ret);
-    }
-
-
-    public function update_post(){
-        $member = $this->login_member;
-        if($member){
-            $data = array(
-                'nickname'    => $this->json('nickname'),
-                'description' => $this->json('description'),
-                'gender'      => $this->json('gender'),
-                'birthday'    => $this->json('birthday'),
-                'phone'       => $this->json('phone'),
-                'avatar'      => $this->json('avatar'),
-                'background'  => $this->json('background'),
-                'lat'         => $this->json('lat'),
-                'lon'         => $this->json('lon'),
-                'address'     => $this->json('address'),
-                'from_where'  => $this->json('from_where'),
-                'third_nick'  => $this->json('third_nick'),
-            );
-            $data = array_filter($data, function($v){
-                return !($v===NULL || $v===FALSE || $v==='');
-            });
-            $data['id'] = $member->id;
-
-            $member_saved = $this->member_model->save($data);
-            $error_code = "200";
-            $json_data  = $member_saved;
-        }else{
-            $error_code = "403";
-        }
-
-        $ret = array(
-            'error' => $error_code,
-            'data'  => isset($json_data)?$json_data:array(),
-        );
-
-        $this->response($ret);
-    }
-
-    protected function filter_empty_username_password($username , $password){
-        //empty username
-        if(!$username){
+        //both empty
+        if(!$description || !$attachment){
             $ret = array(
-                'error' => "405",
-                'data'  => array(),
+                'error' => "431",
+                'data'  => (new stdClass),
             );
 
             $this->response($ret);
         }
-
-        //empty password
-        if($username && !$password){
-            $ret = array(
-                'error' => "406",
-                'data'  => array(),
-            );
-
-            $this->response($ret);
-        }
-
     }
 
 

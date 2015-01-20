@@ -32,7 +32,7 @@ class qiniu extends  REST_Controller {
 		);
 		$ret = array(
 			'error' => "200",
-			'data'  => isset($json_data)?$json_data:array(),
+			'data'  => isset($json_data)?$json_data:(new stdClass),
 		);
 
 		$this->response($ret);
@@ -44,7 +44,7 @@ class qiniu extends  REST_Controller {
 		if(!$bucket){
 			$ret = array(
 				'error' => "420",
-				'data'  => array(),
+				'data'  => (new stdClass),
 			);
 
 			$this->response($ret);

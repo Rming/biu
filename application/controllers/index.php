@@ -6,6 +6,56 @@ class index extends CI_Controller {
 		parent::__construct();
 	}
 
+	public function test(){
+
+        $arr = [
+            'attachment' =>[
+				[
+					'url'   => 'http://baidu.com',
+					'type'  => 'aa',
+					'scale' => '3/4',
+					'tag'   => [
+						[
+							'name'        => '北京',
+							'description' => '北京，帝都，中国首都。',
+							'slug'        => 'beijing',
+							'position_x'  => '12',
+							'position_y'  => '22',
+						],
+					],
+				],
+				[
+					'url'   => 'http://baidu.com',
+					'type'  => 'aa',
+					'scale' => '3/4',
+					'tag'   => [
+						[
+							'name'        => '北京',
+							'description' => '北京，帝都，中国首都。',
+							'slug'        => 'beijing',
+							'position_x'  => '12',
+							'position_y'  => '22',
+						],
+						[
+							'name'        => '北京',
+							'description' => '北京，帝都，中国首都。',
+							'slug'        => 'beijing',
+							'position_x'  => '12',
+							'position_y'  => '22',
+						],
+					],
+				],
+            ],
+
+            'description' => 'hello biu~',
+
+        ];
+
+		$res = json_encode($arr, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+        $this->output
+             ->set_content_type('application/json;charset=utf-8')
+             ->set_output($res);
+    }
 	public function test1412251we1(){
 		require_once APPPATH.'libraries/RNCryptor/autoload.php';
 

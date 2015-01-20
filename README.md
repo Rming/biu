@@ -231,6 +231,134 @@
 				}
 
 
+- #### 新biu~
+
+	- **预定义常量**
+
+			//宽高比支持最多 5 位小数
+			define('TYPE_IMAGE', 20);
+			define('TYPE_VIDEO', 21);
+
+	- **必须参数**
+
+			{
+				"service"      : "biu",
+				"method"       : "create",
+				"token"        : "868F849B0AC795C3CF65E7221EF1FB812D4EB7C8",
+
+				"attachment": [
+			        {
+			            "url"   : "http://baidu.com",
+			            "type"  : "20",
+			            "scale" : "1.3333",
+			            "tag"   : [
+			                {
+			                    "name"        : "北京",
+			                    "position_x"  : "12",
+			                    "position_y"  : "22"
+			                }
+			            ]
+			        },
+			        {
+			            "url"   : "http://google.com",
+			            "type"  : "20",
+			            "scale" : "0.1234",
+			            "tag"   : [
+			                {
+			                    "name"        : "北京",
+			                    "position_x"  : "12",
+			                    "position_y"  : "22"
+			                },
+			                {
+			                    "name"        : "上海",
+			                    "position_x"  : "22",
+			                    "position_y"  : "9"
+			                }
+			            ]
+			        }
+			    ],
+			    "description": "hello biu~"
+			}
+
+
+
+	- **返回参考**
+
+		- *成功*
+
+				{
+				    "error": "200",
+				    "data" : {
+				        "id"         : "4",
+				        "creator_id" : "22",
+				        "description": "hello biu~",
+				        "created_at" : "1421743321",
+				        "attachment" : [
+				            {
+				                "id"        : "7",
+				                "type"      : "20",
+				                "url"       : "http://baidu.com",
+				                "scale"     : "1.3333",
+				                "created_at": "1421743321",
+				                "tag": [
+				                    {
+				                        "id"            : "7",
+				                        "tag_unique_id" : "1",
+				                        "position_x"    : "12",
+				                        "position_y"    : "22",
+				                        "created_at"    : "1421743321",
+				                        "name"          : "北京",
+				                        "description"   : null,
+				                        "slug"          : "abcdef"
+				                    }
+				                ]
+				            },
+				            {
+				                "id"         : "8",
+				                "type"       : "20",
+				                "url"        : "http://google.com",
+				                "scale"      : "0.1234",
+				                "created_at" : "1421743321",
+				                "tag": [
+				                    {
+				                        "id"            : "8",
+				                        "tag_unique_id" : "1",
+				                        "position_x"    : "12",
+				                        "position_y"    : "22",
+				                        "created_at"    : "1421743321",
+				                        "name"          : "北京",
+				                        "description"   : null,
+				                        "slug"          : "abcdef"
+				                    },
+				                    {
+				                        "id"			: "9",
+				                        "tag_unique_id" : "2",
+				                        "position_x"	: "22",
+				                        "position_y"	: "9",
+				                        "created_at"	: "1421743321",
+				                        "name"			: "上海",
+				                        "description"	: null,
+				                        "slug"			: "abcdef"
+				                    }
+				                ]
+				            }
+				        ]
+				    }
+				}
+
+
+
+
+		- *失败*
+
+				{
+					"error":"430",
+					"data":{}
+				}
+
+
+
+
 
 
 - ####错误代码
@@ -252,5 +380,7 @@
 	409 | 用户名已存在
 	- | -
 	420 | bucket 参数错误
+	- | -
+	430 | 发布消息内容为空（无附件且无描述）
 	- | -
 	500 | 服务器错误

@@ -43,5 +43,9 @@ define('TOKEN_EXPIRED_AFTER',                    10*365*24*60*60);
 //性别
 define('MALE',                      10);
 define('FEMALE',                    11);
+
+define('TYPE_IMAGE',                20);
+define('TYPE_VIDEO',                21);
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
