@@ -37,15 +37,36 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
-//10年有效期
-define('TOKEN_EXPIRED_AFTER',                    10*365*24*60*60);
+//标记位使用的true / false
+define('STATUS_TRUE',            1);
+define('STATUS_FALSE',           0);
+
+//Token 10年有效期
+define('TOKEN_EXPIRED_AFTER',  10*365*24*60*60);
 
 //性别
-define('MALE',                      10);
-define('FEMALE',                    11);
+define('MALE',                   10);
+define('FEMALE',                 11);
 
-define('TYPE_IMAGE',                20);
-define('TYPE_VIDEO',                21);
+//biu文类型
+define('TYPE_IMAGE',             20);
+define('TYPE_VIDEO',             21);
+
+//信息记录的状态
+define('STATUS_NORMAL',          30);
+define('STATUS_DELETED',         31);
+define('STATUS_DISABLED',        32);
+
+//section
+define('SECTION_MY',             40);
+define('SECTION_FOLLOW',         41);
+define('SECTION_NEAR',           42);
+define('SECTION_RECOMMEND',      43);
+
+//order
+define('ORDER_TIME_DESC',         50);
+define('ORDER_LIKE_DESC',         51);
+define('ORDER_COMMENT_DESC',      52);
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

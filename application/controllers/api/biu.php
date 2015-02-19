@@ -96,7 +96,7 @@ class Biu extends  REST_Controller {
                             //slug处理
                             $data = [
                                 'name'       => $tag_name,
-                                'slug'       => "abcdef",
+                                'slug'       => null,
                                 'created_at' => time(),
                             ];
                             $tag_get  = $this->tag_unique_model->save($data);
@@ -110,7 +110,9 @@ class Biu extends  REST_Controller {
                         $tag_save    = $this->tag_model->save($data);
                         $tag_save->name        = $tag_get->name;
                         $tag_save->description = $tag_get->description;
+                        $tag_save->bg          = $tag_get->bg;
                         $tag_save->slug        = $tag_get->slug;
+                        $tag_save->is_topic    = $tag_get->is_topic;
                         $tags_save[] = $tag_save;
                         //tag attachment 关系
                         $data = [
@@ -121,6 +123,7 @@ class Biu extends  REST_Controller {
                         $att_tag_map = $this->attachment_tag_model->save($data);
                     }
                     $att_save->tag = $tags_save;
+
                 }
 
                 $attachments_save[] = $att_save;
@@ -134,6 +137,18 @@ class Biu extends  REST_Controller {
         $this->response($ret);
     }
 
+    public function list_post(){
+        $section = $this->json('section');
+        $order   = $this->json('order');
+        $limit   = $this->json('limit');
+        $offset  = $this->json('offset');
+
+        $this->list_section_filter($section);
+
+    }
+    protected function list_section_filter(){
+        $sections = get_constants("SECTION_");
+    }
     protected function filter_empty_both($attachment , $description){
         if($description==='0'||$description===0){
             return true;
