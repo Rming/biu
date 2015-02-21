@@ -15,42 +15,6 @@ class Biu extends  REST_Controller {
         $this->load->model('like_model');
         $this->load->model('comment_model');
     }
-
-    /*
-        "attachment": [
-            {
-                "url"   : "http://baidu.com",
-                "type"  : "aa",
-                "scale" : "1.3333",
-                "tag"   : [
-                    {
-                        "name"        : "北京",
-                        "position_x"  : "12",
-                        "position_y"  : "22"
-                    }
-                ]
-            },
-            {
-                "url"   : "http://google.com",
-                "type"  : "aa",
-                "scale" : "0.1234",
-                "tag"   : [
-                    {
-                        "name"        : "北京",
-                        "position_x"  : "12",
-                        "position_y"  : "22"
-                    },
-                    {
-                        "name"        : "上海",
-                        "position_x"  : "22",
-                        "position_y"  : "9"
-                    }
-                ]
-            }
-        ],
-        "description": "hello biu~"
-
-    */
     public function create_post(){
         $attachment  = $this->json('attachment');
         $description = $this->json('description');
@@ -110,7 +74,7 @@ class Biu extends  REST_Controller {
                         $tag_save    = $this->tag_model->save($data);
                         $tag_save->name        = $tag_get->name;
                         $tag_save->description = $tag_get->description;
-                        $tag_save->bg          = $tag_get->bg;
+                        $tag_save->background  = $tag_get->background;
                         $tag_save->slug        = $tag_get->slug;
                         $tag_save->is_topic    = $tag_get->is_topic;
                         $tags_save[] = $tag_save;
@@ -146,9 +110,11 @@ class Biu extends  REST_Controller {
         $this->list_section_filter($section);
 
     }
+
     protected function list_section_filter(){
         $sections = get_constants("SECTION_");
     }
+
     protected function filter_empty_both($attachment , $description){
         if($description==='0'||$description===0){
             return true;
@@ -156,7 +122,7 @@ class Biu extends  REST_Controller {
         //both empty
         if(!$description || !$attachment){
             $ret = array(
-                'error' => "431",
+                'error' => "430",
                 'data'  => (new stdClass),
             );
 

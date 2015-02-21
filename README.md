@@ -413,71 +413,72 @@
 
         - *成功*
 
+
                 {
-                    "error": "200",
-                    "data" : {
-                        "id"         : "4",
-                        "creator_id" : "22",
-                        "description": "hello biu~",
-                        "created_at" : "1421743321",
-                        "status"     : "30",
-                        "attachment" : [
+                    "error":"200",
+                    "data":{
+                        "id"          :"2",
+                        "creator_id"  :"1",
+                        "description" :"hello biu~",
+                        "created_at"  :"1424509023",
+                        "status"      :"30",
+                        "attachment":[
                             {
-                                "id"        : "7",
-                                "type"      : "20",
-                                "url"       : "http://baidu.com",
-                                "scale"     : "1.3333",
-                                "created_at": "1421743321",
-                                "status"    : "30",
-                                "tag": [
+                                "id"         :"3",
+                                "type"       :"20",
+                                "url"        :"http://baidu.com",
+                                "scale"      :"1.3333",
+                                "created_at" :"1424509023",
+                                "status"     :"30",
+                                "tag":[
                                     {
-                                        "id"            : "7",
-                                        "tag_unique_id" : "1",
-                                        "position_x"    : "12",
-                                        "position_y"    : "22",
-                                        "created_at"    : "1421743321",
-                                        "status"        : "30",
-                                        "name"          : "北京",
-                                        "description"   : null,
-                                        "background"    : null,
-                                        "slug"          : null,
-                                        "is_topic"      : "0"
+                                        "id"            :"4",
+                                        "tag_unique_id" :"1",
+                                        "position_x"    :"12",
+                                        "position_y"    :"22",
+                                        "created_at"    :"1424509023",
+                                        "status"        :"30",
+                                        "name"          :"北京",
+                                        "description"   :null,
+                                        "background"    :null,
+                                        "slug"          :null,
+                                        "is_topic"      :"0"
                                     }
                                 ]
                             },
                             {
-                                "id"         : "8",
-                                "type"       : "20",
-                                "url"        : "http://google.com",
-                                "scale"      : "0.1234",
-                                "created_at" : "1421743321",
-                                "status"     : "30",
-                                "tag": [
+                                "id"         :"4",
+                                "type"       :"20",
+                                "url"        :"http://google.com",
+                                "scale"      :"0.1234",
+                                "created_at" :"1424509023",
+                                "status"     :"30",
+                                "tag":[
                                     {
-                                        "id"            : "8",
-                                        "tag_unique_id" : "1",
-                                        "position_x"    : "12",
-                                        "position_y"    : "22",
-                                        "created_at"    : "1421743321",
-                                        "status"        : "30",
-                                        "name"          : "北京",
-                                        "description"   : null,
-                                        "background"    : null,
-                                        "slug"          : null,
-                                        "is_topic"      : "0"
+                                        "id"            :"5",
+                                        "tag_unique_id" :"1",
+                                        "position_x"    :"12",
+                                        "position_y"    :"22",
+                                        "created_at"    :"1424509023",
+                                        "status"        :"30",
+                                        "name"          :"北京",
+                                        "description"   :null,
+                                        "background"    :null,
+                                        "slug"          :null,
+                                        "is_topic"      :"0"
                                     },
                                     {
-                                        "id"            : "9",
-                                        "tag_unique_id" : "2",
-                                        "position_x"    : "22",
-                                        "position_y"    : "9",
-                                        "created_at"    : "1421743321",
-                                        "status"        : "30",
-                                        "name"          : "上海",
-                                        "description"   : null,
-                                        "background"    : null,
-                                        "slug"          : null,
-                                        "is_topic"      : "0"
+                                        "id"            :"6",
+                                        "tag_unique_id" :"2",
+                                        "position_x"    :"22",
+                                        "position_y"    :"9",
+                                        "created_at"    :"1424509023",
+                                        "status"        :"30",
+                                        "name"          :"上海",
+                                        "description"   :null,
+                                        "background"    :null,
+                                        "slug"          :null,
+                                        "is_topic"      :"0"
                                     }
                                 ]
                             }
@@ -488,11 +489,12 @@
 
 
 
+
         - *失败*
 
                 {
-                    "error":"430",
-                    "data":{}
+                    "error" :"430",
+                    "data"  :{}
                 }
 
 
@@ -504,6 +506,10 @@
 
         //Token 10年有效期
         define('TOKEN_EXPIRED_AFTER',  10*365*24*60*60);
+
+        //标记位使用的true / false
+        define('STATUS_TRUE',               1);
+        define('STATUS_FALSE',              0);
 
         //性别
         define('MALE',                      10);
