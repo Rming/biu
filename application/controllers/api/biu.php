@@ -14,6 +14,7 @@ class Biu extends  REST_Controller {
         $this->load->model('tag_unique_model');
         $this->load->model('like_model');
         $this->load->model('comment_model');
+        $this->load->helper('constant');
     }
     public function create_post(){
         $attachment  = $this->json('attachment');
@@ -100,7 +101,14 @@ class Biu extends  REST_Controller {
         );
         $this->response($ret);
     }
-
+    /**
+     * 获取 指定筛选条件（当前用户/附近/推荐）指定数量的 biu 文
+     *
+     * @param string section
+     * @param string offset
+     * @param string limit
+     * @param string order
+     */
     public function list_post(){
         $section = $this->json('section');
         $order   = $this->json('order');

@@ -65,8 +65,12 @@ define('SECTION_RECOMMEND',      43);
 
 //order
 define('ORDER_TIME_DESC',         50);
-define('ORDER_LIKE_DESC',         51);
-define('ORDER_COMMENT_DESC',      52);
+define('ORDER_TIME_ASC',          51);
+
+define('ORDER_LIKE_DESC',         52);
+define('ORDER_LIKE_ASC',          53);
+define('ORDER_COMMENT_DESC',      54);
+define('ORDER_COMMENT_ASC',      55);
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

@@ -109,14 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array(
-	'employee_model',
-	'employee_role_model',
-	'role_permission_model',
-	'Resource_model',
-	'Resource_section_model',
-	'Resource_action_model',
-);
+$autoload['model'] = array();
 
 
 /* End of file autoload.php */

@@ -244,134 +244,7 @@
             {
                 "service"      : "biu",
                 "method"       : "create",
-                "token"        : "868F849B0AC795C3CF65E7221EF1FB812D4EB7C8",
-
-                "attachment": [
-                    {
-                        "url"   : "http://baidu.com",
-                        "type"  : "20",
-                        "scale" : "1.3333",
-                        "tag"   : [
-                            {
-                                "name"        : "北京",
-                                "position_x"  : "12",
-                                "position_y"  : "22"
-                            }
-                        ]
-                    },
-                    {
-                        "url"   : "http://google.com",
-                        "type"  : "20",
-                        "scale" : "0.1234",
-                        "tag"   : [
-                            {
-                                "name"        : "北京",
-                                "position_x"  : "12",
-                                "position_y"  : "22"
-                            },
-                            {
-                                "name"        : "上海",
-                                "position_x"  : "22",
-                                "position_y"  : "9"
-                            }
-                        ]
-                    }
-                ],
-                "description": "hello biu~"
-            }
-
-
-
-    - **返回参考**
-
-        - *成功*
-
-                {
-                    "error": "200",
-                    "data" : {
-                        "id"         : "4",
-                        "creator_id" : "22",
-                        "description": "hello biu~",
-                        "created_at" : "1421743321",
-                        "status"     : "30",
-                        "attachment" : [
-                            {
-                                "id"        : "7",
-                                "type"      : "20",
-                                "url"       : "http://baidu.com",
-                                "scale"     : "1.3333",
-                                "created_at": "1421743321",
-                                "status"    : "30",
-                                "tag": [
-                                    {
-                                        "id"            : "7",
-                                        "tag_unique_id" : "1",
-                                        "position_x"    : "12",
-                                        "position_y"    : "22",
-                                        "created_at"    : "1421743321",
-                                        "status"        : "30",
-                                        "name"          : "北京",
-                                        "description"   : null,
-                                        "slug"          : "abcdef"
-                                    }
-                                ]
-                            },
-                            {
-                                "id"         : "8",
-                                "type"       : "20",
-                                "url"        : "http://google.com",
-                                "scale"      : "0.1234",
-                                "created_at" : "1421743321",
-                                "status"     : "30",
-                                "tag": [
-                                    {
-                                        "id"            : "8",
-                                        "tag_unique_id" : "1",
-                                        "position_x"    : "12",
-                                        "position_y"    : "22",
-                                        "created_at"    : "1421743321",
-                                        "status"        : "30",
-                                        "name"          : "北京",
-                                        "description"   : null,
-                                        "slug"          : "abcdef"
-                                    },
-                                    {
-                                        "id"            : "9",
-                                        "tag_unique_id" : "2",
-                                        "position_x"    : "22",
-                                        "position_y"    : "9",
-                                        "created_at"    : "1421743321",
-                                        "status"        : "30",
-                                        "name"          : "上海",
-                                        "description"   : null,
-                                        "slug"          : "abcdef"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                }
-
-
-
-
-        - *失败*
-
-                {
-                    "error":"430",
-                    "data":{}
-                }
-
-
-
-- #### 获取biu列表
-
-    - **必须参数**
-
-            {
-                "service"      : "biu",
-                "method"       : "list",
-                "token"        : "868F849B0AC795C3CF65E7221EF1FB812D4EB7C8",
+                "token"        : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
 
                 "attachment": [
                     {
@@ -499,6 +372,268 @@
 
 
 
+- #### 对`biu`发表评论
+
+    - **必须参数**
+
+
+            {
+                "service" : "comment",
+                "method"  : "create",
+                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+
+                "biu_id"  : "1",
+                "content" : "评论内容，在这里，一个不错的评论",
+            }
+
+
+
+
+    - **返回参考**
+
+        - *成功*
+
+                {
+                    "error":"200",
+                    "data":{
+                        "id"         :"7",
+                        "biu_id"     :"1",
+                        "content"    :"评论内容，在这里，一个不错的评论",
+                        "creator_id" :"1",
+                        "created_at" :"1424519470",
+                        "status"     :"30"
+                    }
+                }
+
+
+
+
+
+        - *失败*
+
+                {
+                    "error" :"440",
+                    "data"  :{}
+                }
+
+- #### 获取指定`biu_id`的评论列表
+
+    - **必须参数**
+
+
+            {
+                "service" : "comment",
+                "method"  : "list",
+                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+
+                "biu_id" : "1",
+                "limit"  : "10",
+                "offset" : "0",
+                "order"  : "50"
+            }
+
+    - **`order`常量**
+
+            define('ORDER_TIME_DESC',         50);
+            define('ORDER_TIME_ASC',          51);
+
+
+
+    - **返回参考**
+
+        - *成功*
+
+                {
+                    "error":"200",
+                    "data":[
+                        {
+                            "id"         :"7",
+                            "biu_id"     :"1",
+                            "content"    :"评论内容，在这里，一个不错的评论",
+                            "creator_id" :"1",
+                            "created_at" :"1424519470",
+                            "status"     :"30"
+                        },
+                        {
+                            "id"         :"6",
+                            "biu_id"     :"1",
+                            "content"    :"评论内容，在这里，一个不错的评论",
+                            "creator_id" :"1",
+                            "created_at" :"1424519342",
+                            "status"     :"30"
+                        },
+                        {
+                            "id"         :"5",
+                            "biu_id"     :"1",
+                            "content"    :"评论内容，在这里，一个不错的评论",
+                            "creator_id" :"1",
+                            "created_at" :"1424519287",
+                            "status"     :"30"
+                        },
+                        {
+                            "id"         :"4",
+                            "biu_id"     :"1",
+                            "content"    :"评论内容，在这里，一个不错的评论",
+                            "creator_id" :"1",
+                            "created_at" :"1424519245",
+                            "status"     :"30"
+                        }
+                    ]
+                }
+
+
+
+        - *失败*
+
+                {
+                    "error" :"441",
+                    "data"  :{}
+                }
+
+
+- #### 为指定`biu_id`的点赞
+
+    - **必须参数**
+
+
+            {
+                "service" : "like",
+                "method"  : "create",
+                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+
+                "biu_id" : "1",
+            }
+
+
+    - **返回参考**
+
+        - *成功*
+
+
+                {
+                    "error":"200",
+                    "data":{
+                        "id":"24",
+                        "biu_id":"1",
+                        "creator_id":"1",
+                        "created_at":"1424527144",
+                        "status":"30"
+                    }
+                }
+
+
+
+        - *失败*
+
+                {
+                    "error" :"441",
+                    "data"  :{}
+                }
+
+
+
+- #### 获取指定`biu_id`的点赞的人信息列表
+
+    - **必须参数**
+
+            //顺序按照时间从旧到新（ORDER_TIME_ASC）
+            {
+                "service" : "like",
+                "method"  : "list",
+                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+
+                "biu_id" : "1",
+                "offset" : "0",
+                "limit"  : "5"
+            }
+
+
+    - **返回参考**
+
+        - *成功*
+
+
+                {
+                    "error":"200",
+                    "data":[
+                        {
+                            "id"          :"2",
+                            "username"    :"rming1",
+                            "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                            "nickname"    :null,
+                            "description" :null,
+                            "gender"      :null,
+                            "birthday"    :null,
+                            "phone"       :null,
+                            "avatar"      :null,
+                            "background"  :null,
+                            "lat"         :null,
+                            "lon"         :null,
+                            "address"     :null,
+                            "from_where"  :null,
+                            "third_nick"  :null,
+                            "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                            "token_at"    :"1424508172",
+                            "created_at"  :"1424508172",
+                            "status"      :"30"
+                        },
+                        {
+                            "id"          :"3",
+                            "username"    :"rming2",
+                            "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                            "nickname"    :null,
+                            "description" :null,
+                            "gender"      :null,
+                            "birthday"    :null,
+                            "phone"       :null,
+                            "avatar"      :null,
+                            "background"  :null,
+                            "lat"         :null,
+                            "lon"         :null,
+                            "address"     :null,
+                            "from_where"  :null,
+                            "third_nick"  :null,
+                            "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                            "token_at"    :"1424508172",
+                            "created_at"  :"1424508172",
+                            "status"      :"30"
+                        },
+                        {
+                            "id"          :"1",
+                            "username"    :"rming",
+                            "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                            "nickname"    :null,
+                            "description" :null,
+                            "gender"      :null,
+                            "birthday"    :null,
+                            "phone"       :null,
+                            "avatar"      :null,
+                            "background"  :null,
+                            "lat"         :null,
+                            "lon"         :null,
+                            "address"     :null,
+                            "from_where"  :null,
+                            "third_nick"  :null,
+                            "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                            "token_at"    :"1424508172",
+                            "created_at"  :"1424508172",
+                            "status"      :"30"
+                        }
+                    ]
+                }
+
+
+
+        - *失败*
+
+                {
+                    "error" :"441",
+                    "data"  :{}
+                }
+
+
+
+
 
 
 - #### 全局预定义
@@ -546,5 +681,8 @@
     420 | bucket 参数错误
     - | -
     430 | 发布消息内容为空（无附件且无描述）
+    - | -
+    440 | 评论内容为空
+    441 | 不存在该条说说
     - | -
     500 | 服务器错误

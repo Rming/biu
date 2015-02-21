@@ -1,38 +1,10 @@
-{
-	"service"      : "biu",
-	"method"       : "create",
-	"token"        : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
 
-	"attachment": [
-        {
-            "url"   : "http://baidu.com",
-            "type"  : "20",
-            "scale" : "1.3333",
-            "tag"   : [
-                {
-                    "name"        : "北京",
-                    "position_x"  : "12",
-                    "position_y"  : "22"
-                }
-            ]
-        },
-        {
-            "url"   : "http://google.com",
-            "type"  : "20",
-            "scale" : "0.1234",
-            "tag"   : [
-                {
-                    "name"        : "北京",
-                    "position_x"  : "12",
-                    "position_y"  : "22"
-                },
-                {
-                    "name"        : "上海",
-                    "position_x"  : "22",
-                    "position_y"  : "9"
-                }
-            ]
-        }
-    ],
-    "description": "hello biu~"
-}
+            {
+                "service" : "like",
+                "method"  : "list",
+                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+
+                "biu_id" : "1",
+                "offset" : "0",
+                "limit"  : "100"
+            }

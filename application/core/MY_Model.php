@@ -49,7 +49,7 @@ class MY_Model extends CI_Model {
         }
 
         if (!empty($order_by)) {
-            $this->db->order_by($order_by[0], $order_by[1]);
+            $this->db->order_by($order_by);
         }
 
         $query = $this->db->get($this->table_name);
