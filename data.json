@@ -1,10 +1,9 @@
 
             {
-                "service" : "like",
+                "service" : "biu",
                 "method"  : "list",
                 "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
 
-                "biu_id" : "1",
                 "offset" : "0",
-                "limit"  : "100"
+                "limit"  : "2"
             }

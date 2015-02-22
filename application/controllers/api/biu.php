@@ -108,15 +108,102 @@ class Biu extends  REST_Controller {
      * @param string offset
      * @param string limit
      * @param string order
+     * @param string biu_id
+     *
      */
     public function list_post(){
         $section = $this->json('section');
         $order   = $this->json('order');
         $limit   = $this->json('limit');
         $offset  = $this->json('offset');
+        $biu_id  = $this->json('biu_id');
 
-        $this->list_section_filter($section);
+        if($biu_id) {
+            //单个biu
+            $bius = [];
+            $biu_id = $this->filter_exist_biu($biu_id);
+            $bius[] = $this->biu_model->get($biu_id)?:[];
+        } else {
+            //获取列表
+            $section  = $this->list_section_filter($section);
+            $order_by = $this->parse_order($order);
 
+            $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        }
+
+        foreach ($bius as $biu) {
+            $attachments     = [];
+            $attachment_tags = [];
+            $biu_attachments = $this->biu_attachment_model->where(['biu_id'=>$biu->id]);
+            foreach ($biu_attachments as $biu_attachment) {
+                $tags = [];
+                $attachment = $this->attachment_model->get($biu_attachment->id);
+                if($attachment) {
+                    $attachments[]   = $attachment;
+                    $attachment_tags = $this->attachment_tag_model->where(['attachment_id'=>$attachment->id]);
+                    if($attachment_tags) {
+                        foreach ($attachment_tags as $attachment_tag) {
+                            $tag = $this->tag_model->get($attachment_tag->tag_id);
+                            if($tag) {
+                                $tag_unique = $this->tag_unique_model->get($tag->tag_unique_id);
+                                if($tag_unique) {
+                                    $tag->name        = $tag_unique->name;
+                                    $tag->description = $tag_unique->description;
+                                    $tag->background  = $tag_unique->background;
+                                    $tag->slug        = $tag_unique->slug;
+                                    $tag->is_topic    = $tag_unique->is_topic;
+                                    $tags[] = $tag;
+                                }
+                            }
+                        }
+                    }
+                    $attachment->tag = $tags?:[];
+                }
+            }
+            $biu->attachments = $attachments;
+        }
+
+        $ret = array(
+            'error' => "200",
+            'data'  => $bius?:(new stdClass),
+        );
+        $this->response($ret);
+
+    }
+
+    protected function parse_order($order) {
+        $orders = get_constants("ORDER_");
+        $orders = array_flip($orders);
+        if(isset($orders[$order])) {
+            if($order == ORDER_TIME_ASC) {
+                return "created_at ASC";
+            } elseif($order == ORDER_TIME_DESC) {
+                return "created_at DESC";
+            } elseif($order == ORDER_LIKE_DESC) {
+                return "created_at DESC";
+            } elseif($order == ORDER_LIKE_ASC) {
+                return "created_at DESC";
+            } elseif($order == ORDER_COMMENT_DESC) {
+                return "created_at DESC";
+            } elseif($order == ORDER_COMMENT_ASC) {
+                return "created_at DESC";
+            }
+        } else {
+            return "created_at DESC";
+        }
+    }
+
+    protected function filter_exist_biu($biu_id) {
+        $biu = $this->biu_model->get($biu_id);
+        if(!$biu) {
+            $ret = array(
+                'error' => "441",
+                'data'  => (new stdClass),
+            );
+
+            $this->response($ret);
+        }
+        return $biu_id;
     }
 
     protected function list_section_filter(){
