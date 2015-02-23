@@ -722,7 +722,7 @@
                 "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
 
                 "biu_id"  : "1",
-                "content" : "评论内容，在这里，一个不错的评论",
+                "content" : "评论内容，在这里，一个不错的评论"
             }
 
 
@@ -840,7 +840,7 @@
                 "method"  : "create",
                 "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
 
-                "biu_id" : "1",
+                "biu_id" : "1"
             }
 
 

@@ -1,12 +1,7 @@
+{
+    "service" : "like",
+    "method"  : "create",
+    "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
 
-            {
-                "service" : "biu",
-                "method"  : "list",
-                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
-
-                "offset"        : "0",
-                "limit"         : "2",
-                "section"       : "40",
-                "comment_limit" : "2",
-                "like_limit"    : "2"
-            }
+    "biu_id" : "1"
+}
