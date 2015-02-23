@@ -10,12 +10,6 @@
 |
 */
 $hook['post_controller_constructor'][] = array(
-	'class'    => 'access_control',
-	'function' => 'permission_check',
-	'filename' => 'access_control.php',
-	'filepath' => 'hooks'
-);
-$hook['post_controller_constructor'][] = array(
 	'class'    => 'access_rest',
 	'function' => 'check',
 	'filename' => 'access_rest.php',

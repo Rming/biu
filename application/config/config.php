@@ -357,18 +357,6 @@ $config['proxy_ips'] = '';
 
 $config['compress_output'] = FALSE;
 
-
-/**
- *
- *设置免权限可访问的目录,类,方法
- *
- */
-$config['allowned_dir']   = array('api',);
-$config['allowned_class'] = array('imgauthcode','login');
-$config['allowned_uri']   = array(
-        'calculate/contract',
-);
-
 $config['rest_allowned_uri']   = array(
 		'base/index',
         'update/check',

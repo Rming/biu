@@ -173,8 +173,12 @@ class Biu extends  REST_Controller {
             //creator
             $creator      = $this->member_model->get($biu->creator_id);
             $biu->creator = $creator?:(new stdClass);
-            //
+            //comments_num
+            $biu->comments_num = $this->comment_model->where_count(['biu_id'=>$biu->id]);
+            //like_num
+            $biu->like_num     = $this->like_model->where_count(['biu_id'=>$biu->id]);
         }
+
 
         $ret = array(
             'error' => "200",
