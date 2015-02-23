@@ -1089,7 +1089,14 @@ body .markdown-body
 <li><a href="#_5">登录</a></li>
 <li><a href="#_6">更新</a></li>
 <li><a href="#token">获取七牛文件上传token</a></li>
-<li><a href="#_7">错误代码</a></li>
+<li><a href="#biu">新biu~</a></li>
+<li><a href="#biu_1">获取biu列表</a></li>
+<li><a href="#biu_2">对biu发表评论</a></li>
+<li><a href="#biu_id">获取指定biu_id的评论列表</a></li>
+<li><a href="#biu_id_1">为指定biu_id的点赞</a></li>
+<li><a href="#biu_id_2">获取指定biu_id的点赞的人信息列表</a></li>
+<li><a href="#_7">全局预定义</a></li>
+<li><a href="#_8">错误代码</a></li>
 </ul>
 </div>
 <ul>
@@ -1410,7 +1417,842 @@ body .markdown-body
 </ul>
 </li>
 <li>
-<h4 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>错误代码</h4>
+<h4 id="biu"><a name="user-content-biu" href="#biu" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>新biu~</h4>
+<ul>
+<li>
+<p><strong>预定义常量</strong></p>
+<div class="codehilite"><pre><span class="c1">//宽高比支持最多 5 位小数</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">TYPE_IMAGE</span><span class="p">&#39;,</span> <span class="mh">20</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">TYPE_VIDEO</span><span class="p">&#39;,</span> <span class="mh">21</span><span class="p">);</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;biu&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;create&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;token&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="s2">&quot;attachment&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;url&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://baidu.com&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;scale&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1.3333&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;tag&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;name&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;position_x&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;position_y&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;22&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;url&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;scale&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.1234&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;tag&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;name&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;position_x&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;position_y&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;22&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;name&quot;</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;上海&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;position_x&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;position_y&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;9&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hello biu~&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;creator_id&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;hello biu~&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;attachment&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;url&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;http://baidu.com&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;scale&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;1.3333&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;url&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;scale&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0.1234&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;9&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;上海&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;430&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w">  </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="biu_1"><a name="user-content-biu_1" href="#biu_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>获取biu列表</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;biu&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;token&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="o">//</span><span class="vg">指定biu_id则列表中仅包含此条信息</span><span class="err">，</span><span class="vg">需要获取列表时</span><span class="err">，</span><span class="vg">忽略biu_id</span>
+<span class="w">    </span><span class="s2">&quot;biu_id&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="o">//</span><span class="vg">默认offset</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="vg">limit</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="p">,</span><span class="vg">order</span><span class="w"> </span><span class="vg">by</span><span class="w"> </span><span class="vg">created_at</span><span class="w"> </span><span class="vg">DESC</span>
+<span class="w">    </span><span class="s2">&quot;section&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;40&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;offset&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;limit&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;order&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span>
+
+<span class="w">    </span><span class="s2">&quot;comment_limit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;like_limit&quot;</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong><code>order</code>常量</strong></p>
+<div class="codehilite"><pre><span class="c1">//order</span>
+<span class="c1">//目前仅实现了order by time</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_TIME_DESC</span><span class="p">&#39;,</span>         <span class="mh">50</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_TIME_ASC</span><span class="p">&#39;,</span>          <span class="mh">51</span><span class="p">);</span>
+
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_LIKE_DESC</span><span class="p">&#39;,</span>         <span class="mh">52</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_LIKE_ASC</span><span class="p">&#39;,</span>          <span class="mh">53</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_COMMENT_DESC</span><span class="p">&#39;,</span>      <span class="mh">54</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_COMMENT_ASC</span><span class="p">&#39;,</span>       <span class="mh">55</span><span class="p">);</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong><code>section</code>常量</strong></p>
+<div class="codehilite"><pre><span class="c1">//section</span>
+<span class="c1">//目前仅实现 SECTION_MY</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_MY</span><span class="p">&#39;,</span>             <span class="mh">40</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_FOLLOW</span><span class="p">&#39;,</span>         <span class="mh">41</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_NEAR</span><span class="p">&#39;,</span>           <span class="mh">42</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_RECOMMEND</span><span class="p">&#39;,</span>      <span class="mh">43</span><span class="p">);</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;creator_id&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;hello biu~&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424510636&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;attachments&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;9&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;url&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;http://baidu.com&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;scale&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;1.3333&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424510636&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;13&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424510636&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;url&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;scale&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0.1234&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424510636&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;14&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424510636&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;15&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;9&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424510636&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;上海&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;creator&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming2&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="s2">&quot;comments_num&quot;</span><span class="o">:</span><span class="il">2</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;comments&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519470&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519342&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;like_num&quot;</span><span class="o">:</span><span class="il">1</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;likes&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;creator_id&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;hello biu~&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;attachments&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;url&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;http://baidu.com&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;scale&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;1.3333&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;url&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;scale&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0.1234&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;北京&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;id&quot;</span><span class="w">            </span><span class="o">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;tag_unique_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_x&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;position_y&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;9&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;created_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424509023&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;status&quot;</span><span class="w">        </span><span class="o">:</span><span class="s2">&quot;30&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;name&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;上海&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;description&quot;</span><span class="w">   </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;background&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;slug&quot;</span><span class="w">          </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;is_topic&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;creator&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming2&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="s2">&quot;comments_num&quot;</span><span class="o">:</span><span class="il">3</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;comments&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519287&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;\&quot;</span><span class="vg">1</span><span class="o">=</span><span class="il">1</span><span class="err">&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519231&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;like_num&quot;</span><span class="o">:</span><span class="il">4</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;likes&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;441&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w">  </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="biu_2"><a name="user-content-biu_2" href="#biu_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>对<code>biu</code>发表评论</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;comment&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;create&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;token&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="s2">&quot;biu_id&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;content&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519470&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;440&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w">  </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="biu_id"><a name="user-content-biu_id" href="#biu_id" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>获取指定<code>biu_id</code>的评论列表</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;comment&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;token&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="s2">&quot;biu_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;limit&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;offset&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;order&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong><code>order</code>常量</strong></p>
+<div class="codehilite"><pre><span class="vg">define</span><span class="p">(</span><span class="c1">&#39;ORDER_TIME_DESC&#39;,         50);</span>
+<span class="vg">define</span><span class="p">(</span><span class="c1">&#39;ORDER_TIME_ASC&#39;,          51);</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519470&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519342&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519287&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">         </span><span class="o">:</span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;biu_id&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;content&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;评论内容，在这里，一个不错的评论&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;creator_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;1424519245&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">     </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;441&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w">  </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="biu_id_1"><a name="user-content-biu_id_1" href="#biu_id_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>为指定<code>biu_id</code>的点赞</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;service&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;like&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;create&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;token&quot;</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="s2">&quot;biu_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;biu_id&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;creator_id&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;created_at&quot;</span><span class="o">:</span><span class="s2">&quot;1424527144&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;status&quot;</span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;441&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w">  </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="biu_id_2"><a name="user-content-biu_id_2" href="#biu_id_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>获取指定<code>biu_id</code>的点赞的人信息列表</h4>
+<ul>
+<li>
+<p><strong>必须参数</strong></p>
+<div class="codehilite"><pre><span class="c1">//顺序按照时间从旧到新（ORDER_TIME_ASC）</span>
+<span class="p">{</span>
+    <span class="s">&quot;service&quot;</span> <span class="o">:</span> <span class="s">&quot;like&quot;</span><span class="p">,</span>
+    <span class="s">&quot;method&quot;</span>  <span class="o">:</span> <span class="s">&quot;list&quot;</span><span class="p">,</span>
+    <span class="s">&quot;token&quot;</span>   <span class="o">:</span> <span class="s">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+
+    <span class="s">&quot;biu_id&quot;</span> <span class="o">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s">&quot;offset&quot;</span> <span class="o">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s">&quot;limit&quot;</span>  <span class="o">:</span> <span class="s">&quot;5&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>返回参考</strong></p>
+<ul>
+<li>
+<p><em>成功</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming2&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="w">          </span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;username&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;rming&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;password&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;7f36b33f2da6fcab66054d03f7ea09e949687025&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;nickname&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;gender&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;birthday&quot;</span><span class="w">    </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;phone&quot;</span><span class="w">       </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;avatar&quot;</span><span class="w">      </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;background&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="w">         </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;address&quot;</span><span class="w">     </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;from_where&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;third_nick&quot;</span><span class="w">  </span><span class="o">:</span><span class="vg">null</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;token&quot;</span><span class="w">       </span><span class="o">:</span><span class="s2">&quot;42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;token_at&quot;</span><span class="w">    </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;created_at&quot;</span><span class="w">  </span><span class="o">:</span><span class="s2">&quot;1424508172&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="w">      </span><span class="o">:</span><span class="s2">&quot;30&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><em>失败</em></p>
+<div class="codehilite"><pre><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="o">:</span><span class="s2">&quot;441&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;data&quot;</span><span class="w">  </span><span class="o">:</span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>全局预定义</h4>
+<div class="codehilite"><pre><span class="c1">//Token 10年有效期</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">TOKEN_EXPIRED_AFTER</span><span class="p">&#39;,</span>  <span class="mh">10</span><span class="o">*</span><span class="mh">365</span><span class="o">*</span><span class="mh">24</span><span class="o">*</span><span class="mh">60</span><span class="o">*</span><span class="mh">60</span><span class="p">);</span>
+
+<span class="c1">//标记位使用的true / false</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">STATUS_TRUE</span><span class="p">&#39;,</span>               <span class="mh">1</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">STATUS_FALSE</span><span class="p">&#39;,</span>              <span class="mh">0</span><span class="p">);</span>
+
+<span class="c1">//性别</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">MALE</span><span class="p">&#39;,</span>                      <span class="mh">10</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">FEMALE</span><span class="p">&#39;,</span>                    <span class="mh">11</span><span class="p">);</span>
+
+<span class="c1">//biu文类型</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">TYPE_IMAGE</span><span class="p">&#39;,</span>                <span class="mh">20</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">TYPE_VIDEO</span><span class="p">&#39;,</span>                <span class="mh">21</span><span class="p">);</span>
+
+<span class="c1">//状态</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">STATUS_NORMAL</span><span class="p">&#39;,</span>             <span class="mh">30</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">STATUS_DELETED</span><span class="p">&#39;,</span>            <span class="mh">31</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">STATUS_DISABLED</span><span class="p">&#39;,</span>           <span class="mh">32</span><span class="p">);</span>
+
+<span class="c1">//section</span>
+<span class="c1">//目前仅实现 SECTION_MY</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_MY</span><span class="p">&#39;,</span>             <span class="mh">40</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_FOLLOW</span><span class="p">&#39;,</span>         <span class="mh">41</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_NEAR</span><span class="p">&#39;,</span>           <span class="mh">42</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">SECTION_RECOMMEND</span><span class="p">&#39;,</span>      <span class="mh">43</span><span class="p">);</span>
+
+<span class="c1">//order</span>
+<span class="c1">//目前仅实现了order by time</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_TIME_DESC</span><span class="p">&#39;,</span>         <span class="mh">50</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_TIME_ASC</span><span class="p">&#39;,</span>          <span class="mh">51</span><span class="p">);</span>
+
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_LIKE_DESC</span><span class="p">&#39;,</span>         <span class="mh">52</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_LIKE_ASC</span><span class="p">&#39;,</span>          <span class="mh">53</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_COMMENT_DESC</span><span class="p">&#39;,</span>      <span class="mh">54</span><span class="p">);</span>
+<span class="n">define</span><span class="p">(&#39;</span><span class="no">ORDER_COMMENT_ASC</span><span class="p">&#39;,</span>       <span class="mh">55</span><span class="p">);</span>
+</pre></div>
+
+
+</li>
+<li>
+<h4 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>错误代码</h4>
 <table>
 <thead>
 <tr>
@@ -1474,6 +2316,30 @@ body .markdown-body
 <tr>
 <td>420</td>
 <td>bucket 参数错误</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>430</td>
+<td>发布消息内容为空（无附件且无描述）</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>440</td>
+<td>评论内容为空</td>
+</tr>
+<tr>
+<td>441</td>
+<td>不存在该条说说</td>
+</tr>
+<tr>
+<td>442</td>
+<td>说说列表类型错误</td>
 </tr>
 <tr>
 <td>-</td>
