@@ -42,7 +42,10 @@ class MY_Model extends CI_Model {
         }
     }
 
-    public function get_list($limit=0, $offset=0, $order_by=NULL) {
+    public function get_list($where = [] ,$limit=0, $offset=0, $order_by=NULL) {
+        if(is_array($where) && $where) {
+            $this->db->where($where);
+        }
 
         if ($limit > 0) {
             $this->db->limit($limit, $offset);

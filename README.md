@@ -387,10 +387,14 @@
                 //指定biu_id则列表中仅包含此条信息，需要获取列表时，忽略biu_id
                 "biu_id"  : "1",
 
+                //默认offset 0 , limit 0 ,order by created_at DESC
                 "section": "40",
                 "offset" : "0",
                 "limit"  : "2",
                 "order"  : "50"
+
+                "comment_limit" : "2",
+                "like_limit"    : "2"
 
             }
 
@@ -422,30 +426,32 @@
 
         - *成功*
 
+
+
                 {
                     "error":"200",
                     "data":[
                         {
-                            "id"          :"1",
-                            "creator_id"  :"1",
+                            "id"          :"5",
+                            "creator_id"  :"3",
                             "description" :"hello biu~",
-                            "created_at"  :"1424508197",
+                            "created_at"  :"1424510636",
                             "status"      :"30",
                             "attachments":[
                                 {
-                                    "id"         :"1",
+                                    "id"         :"9",
                                     "type"       :"20",
                                     "url"        :"http://baidu.com",
                                     "scale"      :"1.3333",
-                                    "created_at" :"1424508197",
+                                    "created_at" :"1424510636",
                                     "status"     :"30",
                                     "tag":[
                                         {
-                                            "id"            :"1",
+                                            "id"            :"13",
                                             "tag_unique_id" :"1",
                                             "position_x"    :"12",
                                             "position_y"    :"22",
-                                            "created_at"    :"1424508197",
+                                            "created_at"    :"1424510636",
                                             "status"        :"30",
                                             "name"          :"北京",
                                             "description"   :null,
@@ -456,19 +462,19 @@
                                     ]
                                 },
                                 {
-                                    "id"         :"2",
+                                    "id"         :"10",
                                     "type"       :"20",
                                     "url"        :"http://google.com",
                                     "scale"      :"0.1234",
-                                    "created_at" :"1424508197",
+                                    "created_at" :"1424510636",
                                     "status"     :"30",
                                     "tag":[
                                         {
-                                            "id"            :"2",
+                                            "id"            :"14",
                                             "tag_unique_id" :"1",
                                             "position_x"    :"12",
                                             "position_y"    :"22",
-                                            "created_at"    :"1424508197",
+                                            "created_at"    :"1424510636",
                                             "status"        :"30",
                                             "name"          :"北京",
                                             "description"   :null,
@@ -477,11 +483,11 @@
                                             "is_topic"      :"0"
                                         },
                                         {
-                                            "id"            :"3",
+                                            "id"            :"15",
                                             "tag_unique_id" :"2",
                                             "position_x"    :"22",
                                             "position_y"    :"9",
-                                            "created_at"    :"1424508197",
+                                            "created_at"    :"1424510636",
                                             "status"        :"30",
                                             "name"          :"上海",
                                             "description"   :null,
@@ -490,6 +496,202 @@
                                             "is_topic"      :"0"
                                         }
                                     ]
+                                }
+                            ],
+                            "creator":{
+                                "id"          :"3",
+                                "username"    :"rming2",
+                                "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                                "nickname"    :null,
+                                "description" :null,
+                                "gender"      :null,
+                                "birthday"    :null,
+                                "phone"       :null,
+                                "avatar"      :null,
+                                "background"  :null,
+                                "lat"         :null,
+                                "lon"         :null,
+                                "address"     :null,
+                                "from_where"  :null,
+                                "third_nick"  :null,
+                                "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                                "token_at"    :"1424508172",
+                                "created_at"  :"1424508172",
+                                "status"      :"30"
+                            },
+                            "comments_num":2,
+                            "comments":[
+                                {
+                                    "id"         :"7",
+                                    "biu_id"     :"5",
+                                    "content"    :"评论内容，在这里，一个不错的评论",
+                                    "creator_id" :"1",
+                                    "created_at" :"1424519470",
+                                    "status"     :"30"
+                                },
+                                {
+                                    "id"         :"6",
+                                    "biu_id"     :"5",
+                                    "content"    :"评论内容，在这里，一个不错的评论",
+                                    "creator_id" :"1",
+                                    "created_at" :"1424519342",
+                                    "status"     :"30"
+                                }
+                            ],
+                            "like_num":1,
+                            "likes":[
+                                {
+                                    "id"          :"1",
+                                    "username"    :"rming",
+                                    "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                                    "nickname"    :null,
+                                    "description" :null,
+                                    "gender"      :null,
+                                    "birthday"    :null,
+                                    "phone"       :null,
+                                    "avatar"      :null,
+                                    "background"  :null,
+                                    "lat"         :null,
+                                    "lon"         :null,
+                                    "address"     :null,
+                                    "from_where"  :null,
+                                    "third_nick"  :null,
+                                    "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                                    "token_at"    :"1424508172",
+                                    "created_at"  :"1424508172",
+                                    "status"      :"30"
+                                }
+                            ]
+                        },
+                        {
+                            "id"          :"2",
+                            "creator_id"  :"3",
+                            "description" :"hello biu~",
+                            "created_at"  :"1424509023",
+                            "status"      :"30",
+                            "attachments":[
+                                {
+                                    "id"         :"3",
+                                    "type"       :"20",
+                                    "url"        :"http://baidu.com",
+                                    "scale"      :"1.3333",
+                                    "created_at" :"1424509023",
+                                    "status"     :"30",
+                                    "tag":[
+                                        {
+                                            "id"            :"4",
+                                            "tag_unique_id" :"1",
+                                            "position_x"    :"12",
+                                            "position_y"    :"22",
+                                            "created_at"    :"1424509023",
+                                            "status"        :"30",
+                                            "name"          :"北京",
+                                            "description"   :null,
+                                            "background"    :null,
+                                            "slug"          :null,
+                                            "is_topic"      :"0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id"         :"4",
+                                    "type"       :"20",
+                                    "url"        :"http://google.com",
+                                    "scale"      :"0.1234",
+                                    "created_at" :"1424509023",
+                                    "status"     :"30",
+                                    "tag":[
+                                        {
+                                            "id"            :"5",
+                                            "tag_unique_id" :"1",
+                                            "position_x"    :"12",
+                                            "position_y"    :"22",
+                                            "created_at"    :"1424509023",
+                                            "status"        :"30",
+                                            "name"          :"北京",
+                                            "description"   :null,
+                                            "background"    :null,
+                                            "slug"          :null,
+                                            "is_topic"      :"0"
+                                        },
+                                        {
+                                            "id"            :"6",
+                                            "tag_unique_id" :"2",
+                                            "position_x"    :"22",
+                                            "position_y"    :"9",
+                                            "created_at"    :"1424509023",
+                                            "status"        :"30",
+                                            "name"          :"上海",
+                                            "description"   :null,
+                                            "background"    :null,
+                                            "slug"          :null,
+                                            "is_topic"      :"0"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "creator":{
+                                "id"          :"3",
+                                "username"    :"rming2",
+                                "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                                "nickname"    :null,
+                                "description" :null,
+                                "gender"      :null,
+                                "birthday"    :null,
+                                "phone"       :null,
+                                "avatar"      :null,
+                                "background"  :null,
+                                "lat"         :null,
+                                "lon"         :null,
+                                "address"     :null,
+                                "from_where"  :null,
+                                "third_nick"  :null,
+                                "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                                "token_at"    :"1424508172",
+                                "created_at"  :"1424508172",
+                                "status"      :"30"
+                            },
+                            "comments_num":3,
+                            "comments":[
+                                {
+                                    "id"         :"5",
+                                    "biu_id"     :"2",
+                                    "content"    :"评论内容，在这里，一个不错的评论",
+                                    "creator_id" :"1",
+                                    "created_at" :"1424519287",
+                                    "status"     :"30"
+                                },
+                                {
+                                    "id"         :"3",
+                                    "biu_id"     :"2",
+                                    "content"    :"\"1=1",
+                                    "creator_id" :"1",
+                                    "created_at" :"1424519231",
+                                    "status"     :"30"
+                                }
+                            ],
+                            "like_num":4,
+                            "likes":[
+                                {
+                                    "id"          :"1",
+                                    "username"    :"rming",
+                                    "password"    :"7f36b33f2da6fcab66054d03f7ea09e949687025",
+                                    "nickname"    :null,
+                                    "description" :null,
+                                    "gender"      :null,
+                                    "birthday"    :null,
+                                    "phone"       :null,
+                                    "avatar"      :null,
+                                    "background"  :null,
+                                    "lat"         :null,
+                                    "lon"         :null,
+                                    "address"     :null,
+                                    "from_where"  :null,
+                                    "third_nick"  :null,
+                                    "token"       :"42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+                                    "token_at"    :"1424508172",
+                                    "created_at"  :"1424508172",
+                                    "status"      :"30"
                                 }
                             ]
                         }

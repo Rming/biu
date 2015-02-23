@@ -15,6 +15,8 @@ class Biu extends  REST_Controller {
         $this->load->model('tag_unique_model');
         $this->load->model('like_model');
         $this->load->model('comment_model');
+        $this->load->library('comment_lib');
+        $this->load->library('like_lib');
         $this->load->helper('constant');
     }
     public function create_post(){
@@ -119,6 +121,9 @@ class Biu extends  REST_Controller {
         $offset  = $this->json('offset');
         $biu_id  = $this->json('biu_id');
 
+        $comment_limit = $this->json('comment_limit') ?: 0;
+        $like_limit    = $this->json('like_limit')    ?: 0;
+
         if($biu_id) {
             //单个biu
             $biu_id = $this->filter_exist_biu($biu_id);
@@ -175,8 +180,12 @@ class Biu extends  REST_Controller {
             $biu->creator = $creator?:(new stdClass);
             //comments_num
             $biu->comments_num = $this->comment_model->where_count(['biu_id'=>$biu->id]);
+            //comment list
+            $biu->comments     = $this->comment_lib->list_post($biu->id,0,$comment_limit);
             //like_num
             $biu->like_num     = $this->like_model->where_count(['biu_id'=>$biu->id]);
+            //like list
+            $biu->likes        = $this->like_lib->list_post($biu->id,0,$like_limit);
         }
 
 
@@ -194,24 +203,24 @@ class Biu extends  REST_Controller {
         return $bius;
     }
     protected function get_section_my($limit = 0,$offset = 0,$order_by = null){
-        $this->db->where(['creator_id'=>$this->login_member->id]);
-        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        $where = ['creator_id'=>$this->login_member->id];
+        $bius  = $this->biu_model->get_list($where,$limit,$offset,$order_by);
         return $bius;
     }
 
     protected function get_section_follow($limit = 0,$offset = 0,$order_by = null){
-        $this->db->where(['creator_id'=>$this->login_member->id]);
-        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        $where = ['creator_id'=>$this->login_member->id];
+        $bius  = $this->biu_model->get_list($where,$limit,$offset,$order_by);
         return $bius;
     }
     protected function get_section_near($limit = 0,$offset = 0,$order_by = null){
-        $this->db->where(['creator_id'=>$this->login_member->id]);
-        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        $where = ['creator_id'=>$this->login_member->id];
+        $bius  = $this->biu_model->get_list($where,$limit,$offset,$order_by);
         return $bius;
     }
     protected function get_section_recommend($limit = 0,$offset = 0,$order_by = null){
-        $this->db->where(['creator_id'=>$this->login_member->id]);
-        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        $where = ['creator_id'=>$this->login_member->id];
+        $bius  = $this->biu_model->get_list($where,$limit,$offset,$order_by);
         return $bius;
     }
     protected function get_section_unknown(){
