@@ -7,6 +7,7 @@ class Biu extends  REST_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('biu_model');
+        $this->load->model('member_model');
         $this->load->model('biu_attachment_model');
         $this->load->model('attachment_model');
         $this->load->model('attachment_tag_model');
@@ -120,15 +121,23 @@ class Biu extends  REST_Controller {
 
         if($biu_id) {
             //单个biu
-            $bius = [];
             $biu_id = $this->filter_exist_biu($biu_id);
-            $bius[] = $this->biu_model->get($biu_id)?:[];
+            $bius   = $this->get_section_one($biu_id);
         } else {
             //获取列表
-            $section  = $this->list_section_filter($section);
             $order_by = $this->parse_order($order);
 
-            $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+            if($section == SECTION_MY) {
+                $bius = $this->get_section_my($limit,$offset,$order_by);
+            } elseif($section == SECTION_FOLLOW) {
+                $bius = $this->get_section_follow($limit,$offset,$order_by);
+            } elseif($section == SECTION_NEAR) {
+                $bius = $this->get_section_near($limit,$offset,$order_by);
+            } elseif($section == SECTION_RECOMMEND) {
+                $bius = $this->get_section_recommend($limit,$offset,$order_by);
+            } else {
+                $this->get_section_unknown();
+            }
         }
 
         foreach ($bius as $biu) {
@@ -161,6 +170,10 @@ class Biu extends  REST_Controller {
                 }
             }
             $biu->attachments = $attachments;
+            //creator
+            $creator      = $this->member_model->get($biu->creator_id);
+            $biu->creator = $creator?:(new stdClass);
+            //
         }
 
         $ret = array(
@@ -169,6 +182,40 @@ class Biu extends  REST_Controller {
         );
         $this->response($ret);
 
+    }
+
+    protected function get_section_one($biu_id = 0){
+        $bius   = [];
+        $bius[] = $this->biu_model->get($biu_id)?:[];
+        return $bius;
+    }
+    protected function get_section_my($limit = 0,$offset = 0,$order_by = null){
+        $this->db->where(['creator_id'=>$this->login_member->id]);
+        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        return $bius;
+    }
+
+    protected function get_section_follow($limit = 0,$offset = 0,$order_by = null){
+        $this->db->where(['creator_id'=>$this->login_member->id]);
+        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        return $bius;
+    }
+    protected function get_section_near($limit = 0,$offset = 0,$order_by = null){
+        $this->db->where(['creator_id'=>$this->login_member->id]);
+        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        return $bius;
+    }
+    protected function get_section_recommend($limit = 0,$offset = 0,$order_by = null){
+        $this->db->where(['creator_id'=>$this->login_member->id]);
+        $bius = $this->biu_model->get_list($limit,$offset,$order_by);
+        return $bius;
+    }
+    protected function get_section_unknown(){
+        $ret = array(
+            'error' => "442",
+            'data'  => (new stdClass),
+        );
+        $this->response($ret);
     }
 
     protected function parse_order($order) {
@@ -204,10 +251,6 @@ class Biu extends  REST_Controller {
             $this->response($ret);
         }
         return $biu_id;
-    }
-
-    protected function list_section_filter(){
-        $sections = get_constants("SECTION_");
     }
 
     protected function filter_empty_both($attachment , $description){

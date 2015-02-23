@@ -372,6 +372,143 @@
 
 
 
+
+- #### 获取biu列表
+
+    - **必须参数**
+
+
+
+            {
+                "service" : "biu",
+                "method"  : "list",
+                "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+
+                //指定biu_id则列表中仅包含此条信息，需要获取列表时，忽略biu_id
+                "biu_id"  : "1",
+
+                "section": "40",
+                "offset" : "0",
+                "limit"  : "2",
+                "order"  : "50"
+
+            }
+
+
+    - **`order`常量**
+
+            //order
+            //目前仅实现了order by time
+            define('ORDER_TIME_DESC',         50);
+            define('ORDER_TIME_ASC',          51);
+
+            define('ORDER_LIKE_DESC',         52);
+            define('ORDER_LIKE_ASC',          53);
+            define('ORDER_COMMENT_DESC',      54);
+            define('ORDER_COMMENT_ASC',       55);
+
+
+    - **`section`常量**
+
+            //section
+            //目前仅实现 SECTION_MY
+            define('SECTION_MY',             40);
+            define('SECTION_FOLLOW',         41);
+            define('SECTION_NEAR',           42);
+            define('SECTION_RECOMMEND',      43);
+
+
+    - **返回参考**
+
+        - *成功*
+
+                {
+                    "error":"200",
+                    "data":[
+                        {
+                            "id"          :"1",
+                            "creator_id"  :"1",
+                            "description" :"hello biu~",
+                            "created_at"  :"1424508197",
+                            "status"      :"30",
+                            "attachments":[
+                                {
+                                    "id"         :"1",
+                                    "type"       :"20",
+                                    "url"        :"http://baidu.com",
+                                    "scale"      :"1.3333",
+                                    "created_at" :"1424508197",
+                                    "status"     :"30",
+                                    "tag":[
+                                        {
+                                            "id"            :"1",
+                                            "tag_unique_id" :"1",
+                                            "position_x"    :"12",
+                                            "position_y"    :"22",
+                                            "created_at"    :"1424508197",
+                                            "status"        :"30",
+                                            "name"          :"北京",
+                                            "description"   :null,
+                                            "background"    :null,
+                                            "slug"          :null,
+                                            "is_topic"      :"0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id"         :"2",
+                                    "type"       :"20",
+                                    "url"        :"http://google.com",
+                                    "scale"      :"0.1234",
+                                    "created_at" :"1424508197",
+                                    "status"     :"30",
+                                    "tag":[
+                                        {
+                                            "id"            :"2",
+                                            "tag_unique_id" :"1",
+                                            "position_x"    :"12",
+                                            "position_y"    :"22",
+                                            "created_at"    :"1424508197",
+                                            "status"        :"30",
+                                            "name"          :"北京",
+                                            "description"   :null,
+                                            "background"    :null,
+                                            "slug"          :null,
+                                            "is_topic"      :"0"
+                                        },
+                                        {
+                                            "id"            :"3",
+                                            "tag_unique_id" :"2",
+                                            "position_x"    :"22",
+                                            "position_y"    :"9",
+                                            "created_at"    :"1424508197",
+                                            "status"        :"30",
+                                            "name"          :"上海",
+                                            "description"   :null,
+                                            "background"    :null,
+                                            "slug"          :null,
+                                            "is_topic"      :"0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+
+
+
+        - *失败*
+
+                {
+                    "error" :"441",
+                    "data"  :{}
+                }
+
+
+
+
+
 - #### 对`biu`发表评论
 
     - **必须参数**
@@ -659,6 +796,23 @@
         define('STATUS_DELETED',            31);
         define('STATUS_DISABLED',           32);
 
+        //section
+        //目前仅实现 SECTION_MY
+        define('SECTION_MY',             40);
+        define('SECTION_FOLLOW',         41);
+        define('SECTION_NEAR',           42);
+        define('SECTION_RECOMMEND',      43);
+
+        //order
+        //目前仅实现了order by time
+        define('ORDER_TIME_DESC',         50);
+        define('ORDER_TIME_ASC',          51);
+
+        define('ORDER_LIKE_DESC',         52);
+        define('ORDER_LIKE_ASC',          53);
+        define('ORDER_COMMENT_DESC',      54);
+        define('ORDER_COMMENT_ASC',       55);
+
 
 - ####错误代码
 
@@ -684,5 +838,6 @@
     - | -
     440 | 评论内容为空
     441 | 不存在该条说说
+    442 | 说说列表类型错误
     - | -
     500 | 服务器错误
