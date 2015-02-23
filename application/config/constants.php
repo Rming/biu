@@ -37,6 +37,10 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+//passwd salt
+define('PASSWD_SALT',            ":biu~");
+define('TOKEN_SALT',             ":biu_ttkooen~");
+
 //标记位使用的true / false
 define('STATUS_TRUE',            1);
 define('STATUS_FALSE',           0);

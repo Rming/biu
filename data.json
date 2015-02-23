@@ -1,7 +1,7 @@
 {
-    "service" : "like",
-    "method"  : "create",
-    "token"   : "42F3027D5C018EFA91E16E07AA4C4A9E22EC1A98",
+    "service"          : "member",
+    "method"           : "login",
 
-    "biu_id" : "1"
+    "username"         : "rminghah",
+    "password"         : "123456"
 }

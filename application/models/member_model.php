@@ -24,7 +24,7 @@ class Member_model extends MY_Model {
             }
         } else if ($prefix == '') {
             // use sha1 encoded
-            $password = sha1($user_row->id . ":" . $password);
+            $password = sha1($user_row->id . PASSWD_SALT . $password);
             if ($user_row->password == $password) {
                 return TRUE;
             } else {
@@ -38,8 +38,8 @@ class Member_model extends MY_Model {
         $this->db->insert('member', $data);
         $id = $this->db->insert_id();
 
-		$pwd   = sha1($id . ':' . $password);
-		$token = sha1($id . 'token' . $password);
+		$pwd   = sha1($id . PASSWD_SALT . $password);
+		$token = sha1($id . TOKEN_SALT  . $password);
 
         $member = $this->get($id);
 
